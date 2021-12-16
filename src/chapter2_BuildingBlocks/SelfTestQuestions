@@ -1,0 +1,176 @@
+
+Chapter 2 - Building Blocks
+2.11. Self Test Questions
+
+1. What would be the most appropriate Java data
+type for the following items of data?
+
+	integer - the maximum number of people allowed on a bus
+	double - the weight of a food item purchased in a supermarket
+	char - the grade awarded to a student (eg 'A', 'B' or 'C')
+	
+2. Explain which, if any, of the following items would result in a compiler error.
+
+int x = 75.5;
+double y = 75;
+	
+	int x = 75.5, as you cannot store a real number in an int data type.
+	
+3. Which of the following would be valid names for a variable in Java?
+
+	ticket
+	- cinema ticket - you cannot use two separate words
+	cinemaTicket
+	cinema_ticket
+	- void - you cannot use words that are already in the Java language
+	- Ticket - the name must begin with a lowercase letter
+	
+4. Identify and correct the errors in the program below, which prompts
+for the user's age and then attempts to work out the year in which
+the user was born.
+
+	import java.util.Scanner;
+	
+	public class SomeProg
+	{
+		public static void main (String[] args)
+		{
+			Scanner keyboard = new Scanner(System.in);
+			final int YEAR;
+			int age, bornIn;
+			System.out.print(How old are you this year? );
+			age = keyboard.nextDouble();
+			bornIn = YEAR - age;
+			System.out.println("I think you were born in " + BornIn);
+		}
+	}
+	
+	- class naming convention means the class name must begin with a lowercase letter
+	- class name should allude to the program content
+	- print statements must be in " "
+	- nextDouble() asks for a double value to be stored in an int variable
+	- the program will be unable to modify the constant YEAR
+	- BornIn should be lowercase B
+	- the variable YEAR has not been initialised
+	
+	Correct code below:
+	
+import java.util.Scanner;
+
+public class GuessBirthYear 
+{
+	public static void main (String[] args)
+		{
+			Scanner keyboard = new Scanner(System.in);
+			int age, bornIn, year = 2021;
+			System.out.print("How old are you this year? ");
+			age = keyboard.nextInt();
+			bornIn = year - age;
+			System.out.println("I think you were born in " + bornIn);
+		}
+}
+
+5. What is the final value of z in the following program?
+
+public class SomeProg 
+{
+	public static void main (String[] args)
+	{
+		int x, y, z;
+		x = 5;		
+		y = x + 2;
+		x = 10;
+		z = y * x;
+	}
+}
+
+	z = 70
+	
+6. What would be the final output from the program below if the user entered the number 10?
+
+import java.util.Scanner;
+
+public class Calculate
+{
+	public static void main (String[] args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		int num1, num2;
+		num2 = 6;
+		System.out.print("Enter value ");
+		num1 = keyboard.nextInt();
+		num1 = num1 + 2;
+		num2 = num1 / num2;
+		System.out.println("result = " + num2);
+	}
+}
+
+	Output would be: result = 2
+
+7. Use pseudocode to design a program that asks the user to enter values
+for the length and height of a rectange and then displays the area and
+perimeter of that rectangle.
+
+	BEGIN
+		DISPLAY program title
+		DISPLAY prompt for length
+		ENTER length
+		DISPLAY prompt for height
+		ENTER height
+		SET area TO length * height
+		SET perimeter TO (length + height) * 2
+		DISPLAY area
+		DISPLAY perimeter
+	END
+	
+
+8. The program below was written in an attempt to swap the value of two
+variables. However it does not give the desired result:
+
+/* This program attempts to swap the value of two variables - it
+doesn't give the desired result however! */
+
+import java.util.Scanner;
+
+public class SwapAttempt
+{
+	public static void main (String[] args)
+	{
+		// declare variables
+		int x, y;
+		// enter values
+		System.out.print("Enter value for x ");
+		x = keyboard.nextInt();
+		System.out.print("Enter value for y ");
+		y = keyboard.nextInt();
+		
+		// code attempting to swap two variables
+		x = y;
+		y = x;
+		
+		// display results
+		System.out.println("x = " + x);
+		System.out.println("y = " + y);
+	}
+}
+
+a) Can you see why the program doesn't do what we hoped?
+
+	It doesn't create a new instance of Scanner, so it cannot compile!
+	The code attempting to swap two variables doesn't work. If the
+	user entered 1 for x, and 2 for y:
+	x = y; meaning x now stores 2
+	and y = x, meaning y now stores 2.
+	The initial value of x is lost because it is overwritten by y,
+	then allocated to x.
+
+b) what would be the actual output of the program?
+
+	Both variables would have the same value stored.
+	
+c) How could you modify the program above so that the values of the
+two variables are swapped successfully?
+
+	A third variable would need to be used to store the initial values.
+	
+

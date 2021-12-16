@@ -1,0 +1,83 @@
+
+The eight built-in primitive types of Java:
+(also known as scalar types)
+
+	byte		very small integers (whole numbers)
+	short		small integers
+	int			large integers
+	long		very large integers
+	
+	float		small real numbers
+	double		large real number (decimals)
+
+	char		Unicode character set
+
+	boolean		true or false
+	
+String (an object, not a primitive)
+
+These data types are used to create named
+locations in memory that will contain values
+while the program is running. Also known as
+variables, they are called variables as their
+values vary over the life of the program.
+
+Java convention dictates that:
+variables start with a lowercase letter
+classes start with an uppercase letter
+pick a descriptive name for your variables
+
+Declaring a variable in java:
+
+	dataType variableName
+
+		eg 	int number;
+			char keyboardCharacter;
+			double price;
+			
+Initialising a variable in java using the
+assignment operator:
+
+	variableName = value;
+	// set the value of variableName to value
+	// this puts the value into the box in
+	// memory we called variableName
+	
+		eg 	number = 2;
+			keyboardCharacter = 'a';
+			price = 9.99;
+			
+Declaring and initialising in the same statement:
+
+	int number = 2;
+	char keyboardCharacter = 'a';
+	double price = 9.99;
+	
+You cannot store a double value in an int variable
+as this would result in information loss.
+You can however store an int value in a double variable,
+however you are essentially storing a small value
+in a container too big for it!
+
+A constant is essentially the same as a variable,
+but the value does not change. 
+They are declared using the keyword final, and
+as per Java naming convention, constant names 
+are UPPERCASE eg;
+
+	final int HOURSINTHEDAY = 24;
+	
+Designing a program = considering how to build the software
+Writing the code = implementation
+To design a program, we use pseudocode, as below.
+Each instruction demonstrates a well known programming concept.
+
+	BEGIN
+		DISPLAY program title
+		DISPLAY prompt for price
+		ENTER price
+		DISPLAY prompt for tax
+		ENTER tax
+		SET price TO price * (1 + tax/100)
+		DISPLAY new price
+	END
