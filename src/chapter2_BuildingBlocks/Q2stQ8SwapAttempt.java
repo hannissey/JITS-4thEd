@@ -2,7 +2,7 @@ package chapter2_BuildingBlocks;
 
 import java.util.Scanner;
 
-public class Q8SwapAttempt {
+public class Q2stQ8SwapAttempt {
 	
 		public static void main (String[] args)
 		{

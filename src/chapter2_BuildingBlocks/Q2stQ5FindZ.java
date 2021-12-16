@@ -1,6 +1,6 @@
 package chapter2_BuildingBlocks;
 
-public class FindZ {
+public class Q2stQ5FindZ {
 		public static void main (String[] args)
 		{
 			int x, y, z;

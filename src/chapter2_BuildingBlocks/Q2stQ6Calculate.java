@@ -2,7 +2,7 @@ package chapter2_BuildingBlocks;
 
 import java.util.Scanner;
 
-public class Calculate
+public class Q2stQ6Calculate
 {
 	public static void main (String[] args)
 	{

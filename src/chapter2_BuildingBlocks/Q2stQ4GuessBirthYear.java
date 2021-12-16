@@ -2,7 +2,7 @@ package chapter2_BuildingBlocks;
 
 import java.util.Scanner;
 
-public class GuessBirthYear 
+public class Q2stQ4GuessBirthYear 
 {
 	public static void main (String[] args)
 		{
