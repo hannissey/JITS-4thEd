@@ -156,3 +156,6 @@ A break statement stops the switch program executing the lines of
 code. If a break statement is not used in a case, it will continue
 to execute all the code between the matching case and the break
 statement, as in the SecretAgents program.
+Note that the integers (it could be char) do not affect the output,
+it is simply the break statement and sequential nature of the switch
+that is making this happen.
