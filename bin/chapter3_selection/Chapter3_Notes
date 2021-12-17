@@ -1,0 +1,158 @@
+
+Chapter 3 - Selection
+
+All instructions in the main method are executed
+in sequence. Selection can enable us to control
+which instructions are executed and when.
+
+A conditional statement guards instructions that are not appropriate for users.
+For example, in the rollercoaster program, the instruction "Hello Junior!"
+needs to be guarded and only displayed to those whose age is < 13.
+
+Pseudocode:
+
+DISPLAY "How old are you?"
+	ENTER age
+	IF age is under 13
+		BEGIN 
+			DISPLAY "Hello Junior!"
+		END
+	DISPLAY "Enjoy your ride"
+END
+
+The conditional statement controls the flow of the existing instructions.
+
+--------------------------------------------------------------
+
+The 'if' statement
+
+	if (true)
+	{
+		do this
+	}
+	
+A test is an expression that produces a boolean value.
+The compiler will always assume that the first line following the if
+test is the guarded instruction, so we can skip the braces in this case:
+
+if (true) do this;
+
+You need to use braces if you are executing multiple instructions
+within the if statement, as otherwise only the first line will be
+recognised by the compiler as a conditional statement. The additional
+lines will be executed in sequence.
+
+--------------------------------------------------------------
+
+Comparison Operators
+
+	== 	Equal to
+	!= 	Not equal to
+	< 	Less than
+	> 	Greater than
+	>= 	Greater than or equal to
+	<= 	Less than or equal to
+	
+--------------------------------------------------------------
+
+The if...else statement
+
+Also known as a double-branched selection, the if...else statement
+enables a program to execute an alternative course of action should
+the condition equate to 'false'.
+
+if (condition)
+{
+	// instructions if test is true
+} else
+{
+	// instructions if test is false
+}
+
+--------------------------------------------------------------
+
+Logical operators
+
+Used to check two conditions, ie:
+if (temperature >= 5 && temperature <= 12)
+
+	AND 	&&	both conditions must be true
+		eg: if (temperature >= 5 && temperature <= 12)
+	OR 		||	either one of the conditions can be true
+		eg: if (temperature >= 5 || temperature <= 12)
+	NOT		! 	flips the value to the opposite value. eg true to false
+		eg: if !(temperature >= 5) 
+		note ! operator is on the outside of the brackets !() 
+	
+See boolean algebra for more: 
+https://ryanstutorials.net/boolean-algebra-tutorial/boolean-algebra.php
+
+--------------------------------------------------------------
+
+Nested 'if...else' statements
+
+Nesting if...else statements is a way of allowing multiple choices
+to be processed, however always use a switch statement instead if
+possible as this allows neater implementation.
+
+As you can see in the program Timetable, the if statements cycle
+through the options, so if you have input C, it will process:
+if (group == 'A') results in false, so skips the 10.00am instruction
+and goes straight to if (group == b), this again results in false
+and skips the 1.00pm instruction, executing the else
+if (group == 'C') which is true, thereby executing the 11.00am
+instruction.
+
+We can make this easier to read by removing the braces, as the
+if statements only contain a single instruction, as per 
+TimetableVersion2.
+This program performs error checking, if the user enters an invalid
+group (the input does not meet any of the conditions) this will be 
+flagged with a message 'no such group'
+
+--------------------------------------------------------------
+
+Switch Statements
+
+Even better, we can implement this as a switch statement, as per
+TimetableWithSwitch. The switch statement makes the code more
+compact and readable.
+
+The syntax is as follows:
+
+switch (variable)
+{
+	case variableValue1 : instruction
+	break;
+	case variableValue2 : instruction
+	break;
+	default : instruction
+}
+
+break; forces the program to skip the rest of the switch statement.
+Break is not needed at the end of the last instruction as there is
+nothing left to skip.
+default is the optional case that deals with none of the conditions
+being met. If there is no default and the conditions are not met,
+nothing will be printed.
+
+If two conditions result in the same result, we can group cases
+together, as follows:
+
+switch (variable)
+{
+	case variableValue1 : case variableValue2 : instruction
+	break;
+	case variable value 3 : instruction
+}
+
+--------------------------------------------------------------
+
+Removing break statements
+
+We can remove break statements to release information to users
+who input certain values.
+A break statement stops the switch program executing the lines of
+code. If a break statement is not used in a case, it will continue
+to execute all the code between the matching case and the break
+statement, as in the SecretAgents program.
