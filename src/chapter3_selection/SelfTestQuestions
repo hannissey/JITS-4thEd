@@ -1,0 +1,89 @@
+
+Chapter 3 - Selection
+3.8. Self Test Questions
+
+1. Explain the difference between sequence and selection.
+
+	Sequence is when a progran runs through the code in sequence, meaning
+	the instructions are executed line by line.
+	Selection is implementing condition statements to control the flow,
+	meaning lines of code are only executed if the condition is met.
+
+2. When would it be appropriate to use:
+
+- an if statement?
+	when the program is required to make a choice. A condition is 
+	created, and if the condition evaluates to true the code is
+	executed.
+	
+- an if... else statement?
+
+	This can be used when multiple choices need to be considered.
+	Multiple conditions can be evaluated and code is executed in
+	each case. Otherwise, the code is skipped.
+	It also performs error checking, displaying a statement if none
+	of the conditions are met.
+	
+- a switch statement?
+
+	A switch statement is used in the same way as an if...else.
+	However it presents the code in a compact and neater form.
+	The syntax is different, using 
+	switch (condition) { case : instruction }
+	
+3. Consider the following Java program, which is intended to display
+the code of a cinema ticket. Part of the code has been replaced by a
+comment. Replace the comment so that children under 14 get half price
+tickets. (See class CinemaTicket).
+
+4. Consider the following program:
+
+public class Colours
+{
+	public static void main(String[] args)
+	{
+		int x;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		x = keyboard.nextInt();
+		if (x > 10) System.out.println("Green");
+		System.out.println("Blue");
+		System.out.println("Red");
+	}
+}
+
+What would be the output from this program if
+(a) the user entered 10 when prompted? 
+	// Red
+	// 10 is not greater than 10, so the condition is not met and
+	// the code doesn't run.
+	
+(b) the user entered 20 when prompted?
+	// Green
+	// Blue
+	// Red
+	// 20 is greater than 10, so the condition is met and the code
+	// runs, including the last instruction.
+	
+(c) the braces used in the if statement are removed, and the user
+enters 10 when prompted?
+	// Blue
+	// Red
+	// Because the braces are removed, only the first instruction is
+	// considered as part of the if statement, meaning the second
+	// instruction will be executed sequentially, followed by the last
+	// instruction.
+	
+(d)	the braces used in the if statement are removed, and the user
+enters 20 when prompted?
+	// Green
+	// Blue
+	// Red
+	// The first instruction in the if statement is executed, as
+	// the condition is met, followed by the next two statements.
+	
+
+
+	
+
+	
