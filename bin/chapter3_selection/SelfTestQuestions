@@ -83,6 +83,92 @@ enters 20 when prompted?
 	// the condition is met, followed by the next two statements.
 	
 
+5. Consider the following program:
+
+import java.util.Scanner;
+
+public class Colours2
+{
+	public static void main(String[] args)
+	{
+		int x;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		x = keyboard.nextInt();
+		if (x > 10)
+		{
+			System.out.println("Green");
+		}
+		else
+		{
+			System.out.println("Blue");
+		}
+		System.out.println("Red");
+	}
+}
+
+What would be the output from this program if
+(a) the user entered 10 when prompted?
+	// Blue
+	// Red
+
+(b) the user entered 20 when prompted?
+	// Green
+	// Blue x
+	// Red
+	// Wrong! Blue would not print because 20 > 10, meaning the if
+	// statement only prints out green. Blue would be printed out
+	// only if the value was false, ie x is NOT greater than 10.
+	
+6. Consider the following program:
+
+import java.util.Scanner;
+
+public class Colours3
+{
+	public static void main(String[] args)
+	{
+		int x;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		x = keyboard.nextInt();
+		switch (x)
+		{
+			case 1: case 2: System.out.println("Green"); break;
+			case 3: case 4: case 5: System.out.println("Blue"); break;
+			default: System.out.println("numbers 1-5 only");
+		}
+		System.out.println("Red");
+	}
+}
+
+What would be the output from this program if
+(a) the user entered 1 when prompted?
+	// Green
+	// Red
+	
+(b) the user entered 2 when prompted?
+	// Green
+	// Red
+	
+(c) the user entered 3 when prompted?
+	// Blue
+	// Red
+	
+(d)	the user entered 10 when prompted?
+	// numbers 1-5 only
+	// Red
+	
+(e) the break statements were removed from the switch statement and
+the user entered 3 when prompted?
+	// Blue
+	// numbers 1 - 5 only ? not sure think NO
+	// Red
+	
+(f) the default were removed from the switch statement and the user
+entered 10 when prompted?
+	// Red
+
 
 	
 
