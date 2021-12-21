@@ -1,0 +1,121 @@
+
+Chapter 4 - Iteration
+
+So far, we have looked at sequence (normal program behaviour)
+and selection (where we control the flow of the program using
+conditional statements). Now we are looking at iteration,
+which enables us to repeat instructions.
+
+Iteration is also known as repetition, and the programming
+structures used to implement repetition are called loops.
+There are three types of loop in Java:
+
+-------------------------------------------------------------
+
+for
+
+	for( /* start counter */ ; /* test counter */ ; /* change counter */) 
+		{ 
+			// instruction(s) to be repeated go here
+		} 
+
+	Used for repeating a piece of code a fixed number of times.
+	Implemented using a counter, as below:
+	
+	for (int i = 1; i <= 5; i++)
+		{ 
+			// execute this code
+		}
+	
+	In the header, the following is happening:	
+	- Declares and initialises the counter.
+	- Sets the limit (this loop will run as long as condition is true)
+	- Increments the counter.
+	The body is contained within braces, and holds the code to be executed.
+	Braces can be omitted should there be only one instruction.
+	The loop runs until the test returns false, so in this case
+	i = 6. This means the loop will have run 5 times.
+
+-------------------------------------------------------------
+
+while
+
+	Non-fixed iteration, ie while something is happening, do this.
+	If something stops, the while loop terminates.
+	
+	Executes zero or more times.
+	
+	There is no need for a counter as in a for loop, as it will
+	not repeat for a fixed number of times, and so no need to
+	keep track of the repetition.
+
+		while ( /* test goes here */ ) 
+		{ 
+		// instruction(s) to be repeated go here
+		}
+	
+	We can use a while loop for input validation, so 
+	
+		while (condition is not met)
+		{
+			error message will display;
+		}
+		
+		// if condition is met, while loop is ignored and program continues...
+
+-------------------------------------------------------------
+
+do...while
+
+	Similar to the while loop, however the test is at the end, not the beginning.
+	Used when you wish to code a non-fixed loop that executes at least once, and more if
+	the test evaluates to true.
+	Executes one or more times - the code in the 'do' body will run at least once.
+	
+	do
+	{ 
+	// instruction(s) to be repeated go here
+	} while ( /* test goes here */ ); // note the semi-colon at the end
+	
+	A good choice for when you want your entire program to run again instead of terminating.
+	If the program is contained within a do...while loop you can reiterate the program
+	until the user decides to quit or some other condition is met, eg, if your user wishes
+	to quit when asked:
+	
+	char response; // variable to hold user response
+	do // place code in loop
+	{
+	// program instructions go here
+	System.out.println("another go (y/n)?");
+	response = keyboard.next().charAt(0); // get user reply
+	} while (response == 'y' || response == ‘Y’); // test must be at the end of the loop
+	
+-------------------------------------------------------------
+
+Guidelines for choosing the most appropriate loop
+
+for 
+
+	if the number of repetitions is known prior to entering the loop
+	
+while
+
+	if the number of repetitions is not known
+	you only want the code to run if the condition is met
+	
+do...while
+	
+	the number of repetitions cannot be detemined
+	you want the loop to run at least once, regardless of conditions
+	
+-------------------------------------------------------------
+
+The break statement
+
+	Used in switch statements to stop the program running through
+	the other cases.
+	It is also used in loops to terminate a loop before it reaches its typical end.
+
+The continue statement
+
+	Skips an iteration of the loop if a condition is met.
