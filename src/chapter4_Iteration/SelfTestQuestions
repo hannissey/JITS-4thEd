@@ -1,0 +1,176 @@
+
+Chapter 4 - Iteration
+4.8 Self-Test Questions
+
+1. Consider the following program:
+
+	public class IterationQ1
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 1; i <= 4; i++)
+			{
+				System.out.println("YES");
+			}
+			System.out.println("OK");
+		}
+	}
+
+(a) How many times does this for loop repeat?
+
+	4
+
+(b) What would be the output of this program?
+
+The output would be:
+
+	YES
+	YES
+	YES
+	YES
+	OK
+
+2. Consider the following program:
+
+	public class IterationQ2
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 1; i < 4; i++)
+			{
+				System.out.println("YES");
+				System.out.println("NO");
+			}
+			System.out.println("OK");
+		}
+	}
+	
+(a) How many times does this for loop repeat?
+
+	3
+	
+(b) What would be the output of this program?
+
+	YES
+	NO
+	YES
+	NO
+	YES
+	NO
+	OK
+	
+3. Consider the following program:
+
+import java.util.Scanner;
+
+	public class IterationQ3
+	{
+		public static void main(String[] args)
+		{
+			int num;
+			Scanner keyboard = new Scanner(System.in);
+			
+			System.out.println("Enter a number: ");
+			num = keyboard.nextInt();
+			
+			for (int i = 1; i < num; i++)
+			{
+				System.out.println("YES");
+				System.out.println("NO");
+			}
+			System.out.println("OK");
+		}
+	}
+	
+(a) What would be the output of this program if the user entered 5 when prompted?
+
+Counter begins at 1, so as long as i is less than 5, the loop will iterate resulting in:
+
+	YES
+	NO
+	YES
+	NO
+	YES
+	NO
+	YES
+	NO
+	OK
+	
+(b) What would be the output of this program if the user entered 0 when prompted?
+
+	The only output would be OK, as the loop will not run as 0 is less than 1.
+	
+4. Consider the following program:
+
+	public class IterationQ4
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 1; i <= 15; i = i + 2)
+			{
+				System.out.println(i);
+			}
+		}
+	}
+
+(a) How many times does this for loop repeat?
+
+	The loop runs 8 times.
+	
+(b) What would be the output of this program?
+
+	1
+	3
+	5
+	7
+	9
+	11
+	13
+	15
+	
+(c) What would be the consequence of changing the test of the loop to i >= 15?
+
+	The output would start from 15 and continue upwards, only displaying odd numbers.
+	** Unable to check this, as program terminated without output or error **
+	
+5. Consider the following program:
+
+	public class IterationQ5
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 5; i >=2; i--)
+			{
+				switch (i)
+				{
+					case 1: case 3: System.out.println("YES"); break;
+					case 2: case 4: System.out.println("NO");
+				}
+			}
+			System.out.println("OK");
+		}
+	}
+	
+(a) How many times does this for loop repeat?
+
+	4 x incorrect, 5 - 2 = 3 times
+	
+(b) What would be the output of this program?
+
+	NO
+	YES
+	NO
+	YES x incorrect. Case 1 is not printed as the counter finishes at 2
+	OK
+	
+(c) What would be the consequence of changing the loop counter to (i++) instead of (i--)?
+
+	There would be no output from the switch statement as there is no case for any number
+	larger than 4, and the counter starts at 5.
+	Only OK would be displayed.
+
+6. What would be the output from the following program?
+
+
+
+
