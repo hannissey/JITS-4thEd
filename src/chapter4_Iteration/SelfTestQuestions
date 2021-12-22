@@ -171,6 +171,118 @@ Counter begins at 1, so as long as i is less than 5, the loop will iterate resul
 
 6. What would be the output from the following program?
 
+	public class IterationQ6
+	{
+		public static void main(String[] args)
+		{
+			for(int i = 1; i <= 3; i++)
+			{
+				for(int j = 1; j <= 7; j++)
+				{
+					System.out.print("*");
+				}
+				System.out.println();
+			}
+		}
+	}
+	
+	The inner loop would normally run 7 times, however the outer loop only runs 3 times,
+	so the output would be:
+	
+	*******
+	*******
+	*******
+	
+	Also note the use of 'print' which does not implement a line breaks whereas println()
+	does (at the end).
+	
+7. Examine the program below that aims to allow a user to guess the square of a number
+that is entered. Part of the code has been replaced by a comment:
+
+import java.util.Scanner;
+
+public class IterationQ7
+{
+	public static void main(String[] args)
+	{
+		int num, square;
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter a number: ");
+		num = keyboard.nextInt();
+		System.out.print("Enter the square of this number: ");
+		square = keyboard.nextInt();
+		// loop to check answer
+		while (// test to be completed);
+		{
+			System.out.println("Wrong answer, try again.");
+			square = keyboard.nextInt();
+		}
+		System.out.println("Well done, right answer!");
+	}
+}
+
+(a) Why is a while loop preferable to a for loop or a do...while loop here?
+
+	We do not know how many iterations it will take for the user to get the answer right, and
+	we only want this code to run if the answer is wrong. 
+	A for loop is used for when we know how many times the loop needs to run, and a do...while
+	loop is used for at least one iteration.
+
+(b) Replace the comment with an appropriate test for this loop.
+
+	square * square != num
+	See program IterationQ7.
+	
+Q8. What would be the output of the following program?
+
+	public class IterationQ8
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 1; i <= 10; i++)
+			{
+				if (i > 5)
+				{
+					break;
+				}
+				System.out.println(i);
+			}
+		}
+	}
+	
+	The output would be:
+	
+	1
+	2
+	3
+	4
+	5
+	
+9. What would be the output of the following program?
+
+	public class IterationQ9
+	{
+		public static void main(String[] args)
+		{
+			for (int i = 1; i <= 10; i++)
+			{
+				if (i <= 5)
+				{
+					continue;
+				}
+				System.out.println(i);
+			}
+		}
+	}
+	
+	The output would be:
+	
+	6
+	7
+	8
+	9
+	10
+			
 
 
 
