@@ -52,27 +52,36 @@ public class Q3_NestedForLoops {
 		// I was stuck on this for a long time! If ever in doubt, write down the
 		// code if you wanted to display it without a loop, then replace that section
 		// with the appropriate loop. It breaks down the problem so you can focus more
-		// clearly.
+		// clearly on each individual problem.
 		
+		
+		// runs once
 		for (int w = 0; w >= 0; w--) {
+			// prints 4 stars
 			for (int s = 3; s >= 0; s--) {
 				System.out.print("* ");
 			}
 			System.out.println();
 			
+			// runs once
 			for (int x = 0; x >= 0; x--) {
+				// prints 3 stars
 				for (int p = 2; p >= 0; p--) {
 					System.out.print("* ");
 				}
 				
 				System.out.println();
 				
+				// runs once
 				for (int y = 0; y >= 0; y--) {
+					// prints 2 stars
 					for (int q = 1; q >= 0; q--) {
 						System.out.print("* ");
 					}
 					System.out.println();
 					
+					// runs once
+					// prints 1 star
 					for (int z = 0; z >= 0; z--) {
 						System.out.print("* ");
 						System.out.println();
