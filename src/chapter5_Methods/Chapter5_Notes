@@ -37,6 +37,10 @@ Learning Outcomes:
 	displayMessage();
 
 • explain the meaning of the terms actual parameters and formal parameters;
+
+	actual parameters are the variables/values passed to the method when it is called.
+	formal parameters are those exclusive to the method
+
 • devise simple algorithms with the help of pseudocode;
 • identify the scope of a particular variable;
 • explain the meaning of the term polymorphism;
@@ -88,7 +92,88 @@ It is important to note that once a method is called, the main method
 effectively stops until the called method terminates, then resumes.
 
 // Paused 09.00
+// Resumed 10.50
 
+Looking at our method to replace the calculation in FindCost3.java,
+there are a few things to note:
+
+	static double addTax(double priceIn, double taxIn)
+	{ 
+	return priceIn * (1 + taxIn/100);
+	}
+	
+Instead of void, we have double. This is because the method will be returning a
+result of type double. If a method returns a value, the method type must be the same
+as the return type, so a double, integer, char, boolean etc.
+
+The method requires information to complete the task, which is the price, and the tax amount.
+These are passed to the method within the parentheses, and are called formal parameters.
+The formal parameters need to be unique and specific to that method, so instead of simply
+passing price and tax, we declare two new exclusive variables, called priceIn and TaxIn.
+
+The return keyword both ends the method, and sends back a value. In this method, it is
+the result of the calculation. Void type methods do not need a return instruction.
+
+The process of calling a method using parameters is called passing parameters.
+When we call a method, we use the original program variables, which in this case are price
+and tax, therefore the method call looks like this:
+
+	// calling method
+	addTax(price, tax)
+
+However the method itself looks like this:
+
+	// called method
+	addTax(double priceIn, double taxIn)
+
+price and tax are the actual parameters.
+These are copied onto the formal parameters (passing parameters)
+Therefore, price and priceIn contain the same value for the purpose of the program,
+as does tax and taxIn.
+You can name your formal parameters anything you like, and the actual parameters will
+be passed in the same order given, as long as they are the same type & amount, eg
+
+the method
+	methodName(double anyName, boolean anyName)
+
+can be called like this
+	methodName(random, whatever)
+
+as long as random is a type double, and whatever is type boolean.
+
+However it is better to name your variables appropriately to avoid confusion and follow
+convention.
+
+If the amount of actual parameters used to call a method does not match the formal parameters
+the method needs, the compiler would show you an error.
+
+You can also send real values to methods, rather than variables, eg
+
+	addTax(87.6, 10.0)
+
+again, as long as the data types match.
+
+Writing A Method
+
+When writing a method, there are 4 things to consider:
+
+• the name that we will give to the method;
+• the inputs to the method (the formal parameters);
+• the output of the method (the return value);
+• the body of the method (the instructions that do the job required)
+
+	static returnType methodName(formalParameter, formalParameter)
+	{
+		body of method
+		return
+	}
+
+IMPORTANT! A method cannot change the original value of a variable passed to it as a parameter.
+This is because only a copy of what is stored in the variable is passed on - the original
+value remains intact.
+See ParameterDemo for a demonstration.
+
+// Pausing at 12.47, pick up at 5.6 Variable Scope.
 	
 
 
