@@ -1,0 +1,94 @@
+
+// Started 8.21
+
+Chapter 5 - Methods
+
+Learning Outcomes:
+
+• explain the meaning of the term method;
+	
+	a method is a function - that is, it is a mini-program
+	within a larger program, a method within a class.
+	It performs a defined set of instructions that detail a
+	specific task.
+	
+	Every Java class has a main method, but you can create
+	additional methods to perform particular functions.
+
+• declare and define methods;
+
+	SYNTAX
+	
+	method header 
+	static void methodName()
+	{
+		method body
+		// do this
+	}
+
+• call a method;
+
+	calling a method is requesting that a program then goes
+	to the method itself, perform that set of instructions,
+	and come back to the original program once the method
+	has terminated.
+	
+	To call a method, simply type its name:
+	displayMessage();
+
+• explain the meaning of the terms actual parameters and formal parameters;
+• devise simple algorithms with the help of pseudocode;
+• identify the scope of a particular variable;
+• explain the meaning of the term polymorphism;
+• declare and use overloaded methods
+
+
+Declaring & Defining Methods
+
+Additional methods are written outside of the main method.
+
+Here we have the example of a method that displays a confidentiality
+message:
+
+	static void displayMessage()
+	{
+		System.out.println("Message");
+	}
+	
+Every time we call displayMessage() in our program it will print
+out the line "Message".
+
+The syntax is described as follows:
+
+static
+
+	methods that are static can only call other static methods
+	mainly used for memory management
+	"When a member is declared static, it can be accessed before
+	any objects of its class are created, and without reference 
+	to any object." - https://www.geeksforgeeks.org/static-keyword-java/
+	
+void
+
+	the method does not return (send back) any information
+	
+displayMessage()
+
+	the name we have given our message. The parentheses would
+	contain any information we need to pass to the method. In
+	this case, no info is required and so the parentheses are
+	empty.
+	
+You can place your method before or after the main method, it
+doesn't matter to the compiler as it will always start with main.
+Starting out, we will be calling our methods from within the main
+method, however methods can call other methods, and that method can
+call another method. This is called "chained" methods.
+It is important to note that once a method is called, the main method
+effectively stops until the called method terminates, then resumes.
+
+// Paused 09.00
+
+	
+
+
