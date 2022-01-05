@@ -1,0 +1,159 @@
+
+Chapter 1 - The First Step
+1.9. Self Test Questions
+
+1. Explain the meaning of the following terms
+
+program
+
+	a set of instructions written for a computer
+
+software
+
+	a single program or a series of programs that work together 
+
+application software
+
+	a program (or set of programs) that performs a function, ie, 
+	a word processor or game
+
+system software
+
+	software that helps users use computers, such as operating systems
+
+machine code
+
+	binary code that a computer uses to function
+
+source code
+
+	the code that makes up a program
+
+embedded software
+
+	programs that are present and functioning in items such as ovens
+	or microwaves
+
+compilation
+
+	when a programming language is run through a 'compiler' to translate
+	it into code the computer or software can understand
+
+Java byte code
+
+	the Java code we write is translated into byte code using the Java
+	compiler, which along with the JVM is part of the JRE. This translates
+	the Java programs into byte code which is a univeral binary language.
+
+Java Virtual Machine
+
+	otherwise known as the JVM, this is software that translates the
+	code we write into byte code using a Java compiler, and then runs it 
+	through the JVM which translates it into the appropriate machine
+	code for the machine it is using.
+	The JVM and the libraries it uses are known as the Java Runtime
+	Environment (JRE).
+
+integrated development environment
+
+	IDEs are used by developers to easily write code, see the results
+	and organise their files, plus various other functions that make 
+	developing more efficient.
+	If you are on a Windows OS, you will need to install the JDK
+	(Java Development Kit) as this does not come pre-installed.
+	Examples of Java IDEs are NetBeans, IntelliJ and Eclipse.
+
+2. Explain how Java programs are compiled and run.
+
+	Java programs are compiled using the Java compiler, which translates
+	it into Java byte code. This is then run through the JVM, which 
+	translates it into the relevant machine code for the computer the
+	programmer is using, be it PC, Mac or UNIX.
+
+3. Describe two different ways of adding comments to a Java program.
+
+	For one line, you simply add // at the beginning or the statement.
+	For multiple lines, you need to start with /* and end with */
+
+4. What is the difference between using System.out.println and
+System.out.print to produce output in Java?
+
+	println ends the expression with a line break, print does not, eg:
+	System.out.print("This will be on ");
+	System.out.println("the same line. (line break here)");
+	System.out.println("This will not (line break here)");
+	System.out.print("be on the same line.");
+
+5. What, precisely, would be the output of the following programs?
+
+(a)
+
+public class Question5A
+{
+	public static void main(String[] args)
+	{
+		System.out.print("Hello, how are you? ");
+		System.out.println("Fine thanks.");
+	}
+}
+
+
+	The output would be: 
+	Hello, how are you? Fine thanks.
+
+(b)
+
+public class Question 5B
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Hello, how are you? ");
+		System.out.println("Fine thanks.");
+	}
+}
+
+	The output would be: 
+	
+	Hello, how are you?
+	Fine thanks.
+
+(c)
+
+public class Question 5C
+{
+	public static void main(String[] args)
+	{
+		System.out.println("1 + 2 " + "+ 3" + " = 6");
+	}
+}
+
+	The output would be:
+	1 + 2 + 3 = 6
+
+6. Identify the syntax errors in the following program.
+
+public class
+{
+	public Static void main(String[] args)
+	{
+		system.out.println( I want this program to compile)
+	}
+	
+	- class has no name
+	- Static is capitalised, should be static
+	- system.out.println should be capitalised, System.out.println
+	- Expression needs to be a String using ""
+	- no space needed between ( and start of String
+	- The instruction does not finish with a semi-colon.
+	- class has no closing brace
+	
+	Correct code below:
+	
+	public class someClass
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("I want this program to compile.");
+		}
+	}
+

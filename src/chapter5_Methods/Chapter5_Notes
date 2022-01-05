@@ -1,7 +1,7 @@
 
-// Started 8.21
-
 Chapter 5 - Methods
+
+-------------------------------------------------------------
 
 Learning Outcomes:
 
@@ -42,12 +42,27 @@ Learning Outcomes:
 	formal parameters are those exclusive to the method
 
 • devise simple algorithms with the help of pseudocode;
+
+	pseudocode is writing out a set of instructions that can then be written out in the
+	appropriate syntax. A decision procedure that is broken down into small steps.
+	
 • identify the scope of a particular variable;
+	
+	scope can be local or global. Local scope means variables can only be accessed by
+	the method or class in which they are declared. 
+	Methods can only access 3 types of variable:
+		- formal parameters (actual parameters passed to the method)
+		- local (variables declared within the body of the method)
+		- variables declared as attributes of a class
+
 • explain the meaning of the term polymorphism;
 • declare and use overloaded methods
 
+	
+-------------------------------------------------------------
 
 Declaring & Defining Methods
+-------------------------------------------------------------
 
 Additional methods are written outside of the main method.
 
@@ -90,9 +105,6 @@ method, however methods can call other methods, and that method can
 call another method. This is called "chained" methods.
 It is important to note that once a method is called, the main method
 effectively stops until the called method terminates, then resumes.
-
-// Paused 09.00
-// Resumed 10.50
 
 Looking at our method to replace the calculation in FindCost3.java,
 there are a few things to note:
@@ -153,7 +165,11 @@ You can also send real values to methods, rather than variables, eg
 
 again, as long as the data types match.
 
+	
+-------------------------------------------------------------
+
 Writing A Method
+-------------------------------------------------------------
 
 When writing a method, there are 4 things to consider:
 
@@ -173,7 +189,90 @@ This is because only a copy of what is stored in the variable is passed on - the
 value remains intact.
 See ParameterDemo for a demonstration.
 
-// Pausing at 12.47, pick up at 5.6 Variable Scope.
+	
+-------------------------------------------------------------
+
+Variable Scope
+-------------------------------------------------------------
+
+A question we may ask is why we need to create exclusive variables (formal parameters)
+for our methods, instead of using the actual parameters.
+Why do we need to change price to priceIn if the value is still the same?
+
+The reason is scope. Local variables can only be used within the programs in which they have
+been declared. If we are using a variable within the main method, this variable cannot be
+used in additional methods. See program ScopeTest for an example.
+
+A method is unaware of what has been declared in any other method. A good example of
+encapsulation, it means we could use the same variable names throughout our programs, in
+different methods for different purposes. The x variable in the main method and a helper method
+would be treated as two separate entities.
+
+To explain why this happens, think of a computer's memory when a program is running.
+Part of the memory is called the stack, and some space is used to store the values within
+this stack. A method is used during a program's runtime, and so once the method has
+terminated, that part of the stack is no longer accessible.
+
+To conclude, a method can only access:
+
+	- formal parameter variables
+	- local variables inside its body
+	- class attributes
+
+	
+-------------------------------------------------------------
+
+Method Overloading
+-------------------------------------------------------------
+
+We learned about operators being overloaded, eg:
+/ can be used to divide both integers and real numbers
++ can be used for addition and concatenation
+
+Overloading refers to a function behaving differently depending on what it is doing.
+
+When two methods have the same name but a different set of parameters and functions, we say
+the method is overloaded, because the name alludes to more than one thing - in this case,
+methods.
+
+// Note to self: it's interesting in Java how a name doesn't allude to one thing, and
+it is the function and how it works that takes precedence, ie, bow is both a hair ribbon
+and a weapon.
+A bit like how context is important in the English language to help with our interpretation
+of words.
+
+Method overloading is an example of polymorphism.
+Polymorphism means 'having many forms', and is an important feature of OOP.
+
+So if we have two methods called 'max' that have a different set of parameters and 
+perform different functions, how does the program know which one we mean?
+It matches the actual parameters with the formal parameters, ie, if the first max method
+only has two parameters and the second has three, if our method call contains two parameters
+it will invoke the first method.
+
+The method 'signature' is the name & parameter list contained in the header.
+
+	
+-------------------------------------------------------------
+
+Using Methods In Menu Driven Programs
+-------------------------------------------------------------
+
+Look at the CircleCalculation program. This is a menu-driven program built using a 
+switch statement. Instead of filling each case with blocks of code, we have kept it
+compact by moving the code into methods instead, and then calling the methods when required.
+
+Note how the radius variable is treated throughout the program:
+The actual parameter used in the main method is radius
+
+The representation of 'radius' is used differently in the methods however:
+The method option1 does not have a formal parameter and therefore does not need to be passed
+an actual parameter. However, a variable local to the option1 method is declared, myRadius.
+which then stores the user's input and is passed back to the program and stored within radius.
+
+When passed to method option2 and method option3, the formal parameters ask for radiusIn.
+The radius is passed to the method via the passing parameters process which copies the
+value of radius to radiusIn. This value is then used within the method for calculation.
 	
 
 

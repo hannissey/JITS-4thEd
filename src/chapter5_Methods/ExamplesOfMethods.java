@@ -48,14 +48,14 @@ public class ExamplesOfMethods {
 	
 	static int max(int firstIn, int secondIn)
 	{ 
-	if(firstIn > secondIn)
-	 { 
-	return firstIn;
-	 } 
-	else
-	 { 
-	return secondIn;
-	 } 
+		if(firstIn > secondIn)
+		 { 
+			return firstIn;
+		 } 
+		else
+		 { 
+			return secondIn;
+		 } 
 	} 
 	
 	static boolean isEven(int numberIn)
