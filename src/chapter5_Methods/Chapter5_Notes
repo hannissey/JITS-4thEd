@@ -56,7 +56,22 @@ Learning Outcomes:
 		- variables declared as attributes of a class
 
 • explain the meaning of the term polymorphism;
+
+	Polymorphism means 'of many forms', and is a way of describing that operators and
+	methods can be overloaded, meaning the symbols and method names can be used to execute
+	different processes. So for example, the + operator can be used for addition but also
+	concatenation.
+	With methods, methods can share names as long as the signatures are unique. For example,
+	the method max has 2 formal parameters but can be differentiated from the method max that
+	has 3 formal parameters. As long as the actual parameters passed to the method when it
+	is called match the method required, the method will run.
+
 • declare and use overloaded methods
+
+	The following are two separate methods despite having the same name:
+
+	max(int firstIn, int secondIn)
+	max(int firstIn, int secondIn, int thirdIn)
 
 	
 -------------------------------------------------------------

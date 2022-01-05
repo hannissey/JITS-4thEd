@@ -1,3 +1,163 @@
 
 Chapter 5 - Methods
 5.9 Self-Test Questions
+
+1. Explain the meaning of the term method.
+
+	A method is a set of instructions within a class but outside of the main method.
+	It contains code used to complete a task, and can be called when required.
+
+2. What would be the output of the following program?
+
+	public class OrderOfCountries
+	{
+		public static void main(String[] args)
+		{
+			method1();
+			System.out.println("England");
+			method2();
+			System.out.println("Ireland");
+		}
+		
+		static void method1()
+		{
+			System.out.println("Wales");
+		}
+		
+		static void method2()
+		{
+			System.out.println("Scotland");
+			method1();
+		}
+	}
+	
+	The output would be:
+	
+	Wales
+	England
+	Scotland
+	Wales
+	Ireland
+	
+3. Consider the following program:
+
+	public class MethodsQ3
+	{
+		public static void main(String[] args)
+		{
+			System.out.println(myMethod(3, 5));
+			System.out.println(myMethod(3, 5, 10));
+		}
+		
+		static int myMethod(int firstIn, int secondIn, int thirdIn)
+		{
+			return firstIn + secondIn + thirdIn;
+		}
+		
+		static int myMethod(int firstIn, int secondIn)
+		{
+			return firstIn = secondIn;
+		}
+	}
+	
+(a) 
+
+	(i) Distinguish between the terms actual parameters and formal parameters.
+	
+		Actual parameters are the variables/values passed to the method when called, eg
+		myMethod(3, 5)
+		Formal parameters are what the method requests, eg
+		myMethod(int firstIn, int secondIn)
+		The actual parameters will be copied on to the formal parameters in a process called
+		passing parameters, then these values will be used within the method.
+		
+	(ii) Explain what is meant by a method's return type.
+	
+		In the program above, both methods declare an int return type in the header.
+		This requires the method to return an int.
+		If the return type does not match the return declaration, an error will occur.
+		if no return type is required, the return type will be void.
+		
+	(iii) Explain the meaning of the terms polymorphism and method overloading.
+	
+		"polymorphism is the provision of a single interface to entities of different types 
+		or the use of a single symbol to represent multiple different types."
+		- Google
+	
+		Polymorphism means 'of many forms' and is an important part of OOP.
+		Just like a word in the English language can have different meanings, (eg bow can
+		mean a weapon or hair ribbon), a method name can be used on multiple methods.
+		A great example is a person. We have Roger. Roger is a husband, a father, a golfer,
+		a teacher. He would perform different functions in each of these roles. This is
+		called polymorphism. (
+		As long as the list of formal parameters within the signature are unique, the computer
+		can differentiate between the methods.
+		
+(b) What would be displayed on the screen when this program was run?
+
+	-2
+	18
+	
+(c) Explain, giving reasons, the effect of adding either of the following lines into the
+main method.
+
+	(i) System.out.println(myMethod(3));
+	
+		The program would error, as there is no matching method signature.
+		
+	(ii) System.out.println(myMethod(3, 5.7, 10))
+	
+		The program would error, as both methods require all the parameters to be integers.
+		5.7 is a double data type.
+	
+4. What would be displayed on the screen as a result of running the following program?
+
+	public class MethodsQ4
+	{
+		public static void main(String[] args)
+		{
+			int x = 3;
+			int y = 4;
+			System.out.println(myMethod(x, y));
+			System.out.println(y);
+		}
+		
+		static int myMethod(int firstIn, int secondIn)
+		{
+			int x = 10;
+			int y;
+			y = x + firstIn + secondIn;
+			return y;
+		}
+	}
+	
+	The output would be:
+	
+	17
+	4
+	
+5. What would be displayed on the screen as a result of running the following program?
+
+	public class MethodsQ5
+	{
+		public static void main(String[] args)
+		{
+			int x = 2;
+			int y = 7;
+			System.out.println(myMethod(x, y));
+			System.out.println(y);
+		}
+		
+		static int myMethod(int a, int x)
+		{
+			int y = 20;
+			return y - a - x;
+		}
+	}
+	
+	The output would be:
+	
+	11
+	7
+		
+
