@@ -18,7 +18,7 @@ Learning Outcomes:
 	
 -------------------------------------------------------------
 
-Creating An Array
+6.2 Creating An Array
 
 An array is a data type that acts as a container to store a collection of items.
 The items are the 'elements' of the array, and must all be of the same type, ie 
@@ -98,7 +98,7 @@ Fun analogy to build on the 'street' idea:
 
 -------------------------------------------------------------
 
-Accessing Array Elements
+6.3 Accessing Array Elements
 
 It is important to note that as arrays start at 0, the array index is used to locate an
 element in the array: it is not the item at that position, eg
@@ -143,6 +143,25 @@ for(int i = 0; i < temperature.length; i++)
 The .length feature returns the size of an array, so this will then run the loop for each 
 element in the array. 
 
-Pausing at page 147 at 12.20
+-------------------------------------------------------------
 
+6.4 Passing Arrays as Parameters
 
+-------------------------------------------------------------
+
+6.5 Varargs
+
+-------------------------------------------------------------
+
+6.6 Returning An Array From A Method
+
+-------------------------------------------------------------
+
+6.7 The Enhanced 'for' Loop
+
+	for (datatype item : arrayName)
+	{
+		System.out.println(item);
+	}
+
+paused 14.37 - page 138

@@ -15,7 +15,7 @@ public class TemperatureReadingsWithDaysOfTheWeek {
 		String[] daysOfTheWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 		
 		enterTemps(temperature, daysOfTheWeek);
-		displayTemps(temperature, daysOfTheWeek);
+		displayTemps(daysOfTheWeek, temperature);
 	
 	}
 	
@@ -30,7 +30,7 @@ public class TemperatureReadingsWithDaysOfTheWeek {
 		}
 	}
 	
-	static void displayTemps(double[] temperatureIn, String[] daysOfTheWeekIn)
+	static void displayTemps(String[] daysOfTheWeekIn, double... temperatureIn)
 	{
 		// display temperatures
 		Scanner keyboard = new Scanner(System.in);
