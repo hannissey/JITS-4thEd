@@ -2,17 +2,19 @@ package chapter6_Arrays;
 
 import java.util.Scanner;
 
-public class SomeUsefulArrayMethods {
+public class SomeUsefulArrayMethodsAttempt {
 	public static void main(String[] args)
 	{
 		char choice;
 		Scanner keyboard = new Scanner(System.in);
 		int[] someArray; // declare integer array
-		System.out.print("How many elements to store?:"); // requests length of array
+		System.out.print("How many elements to store?"); // requests length of array
 		int size = keyboard.nextInt();
 		// use the user specified size to allocate memory to array
 		someArray = new int[size];
-
+		
+		
+		
 		do
 		{
 			// menu
@@ -27,53 +29,30 @@ public class SomeUsefulArrayMethods {
 			);
 			
 			// get choice
-			System.out.println("\nEnter choice 1-7: ");
+			System.out.println("Enter choice 1-7: ");
 			choice = keyboard.next().charAt(0);
 			
 			// switch statement to process user choice by calling appropriate methods
 			switch(choice)
 			{
-			case '1': 	fillArray(someArray);
-						break;
-						
-			case '2': 	int max = findMax(someArray);
-						// it is better practice to assign the method call to a variable
-						// and print the variable
-						System.out.println("Maximum array value = " + max);
-						break;
-						
-			case '3': 	int sum = calculateSum(someArray);
-						System.out.println("Sum of array values = " + sum);
-						break;
-						
-			case '4': 	System.out.println("Please enter value you wish to find: ");
-						int value = keyboard.nextInt();
-						boolean found = findValue(someArray, value);
-						if (found) 
-						{
-							System.out.println(value + " is in the array.");
-						}
-						else
-						{
-							System.out.println(value + " is not in the array.");
-						}
-						break;
-						
-			case '5': 	System.out.println("Please enter the value you wish to locate: ");
-						int position = keyboard.nextInt();
-						int index = locate(someArray, position);
-						if (index == -999)
-						{
-							System.out.println("This value is not in the array.");
-						}
-						else 
-						{
-							System.out.println("This value is located at array index " + index);
-						}
-						break;
-			case '6': 	System.out.println("Array Values");
-						displayArray(someArray);
-						break;
+			case '1': fillArray(someArray);
+			break;
+			case '2': System.out.println(findMax(someArray));
+			break;
+			case '3': System.out.println(calculateSum(someArray));
+			break;
+			case '4': 
+				System.out.println("Please enter value you wish to find: ");
+				int value = keyboard.nextInt();
+				System.out.println(findValue(someArray, value)); 
+			break;
+			case '5': 
+				System.out.println("Please enter the value you wish to locate: ");
+				int position = keyboard.nextInt();
+				System.out.println(locate(someArray, position));
+			break;
+			case '6': displayArray(someArray);
+			break;
 			}
 			
 		} while (choice != '7');

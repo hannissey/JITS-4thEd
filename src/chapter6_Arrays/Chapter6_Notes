@@ -313,7 +313,6 @@ You should only use an enhanced for loop when you:
 -------------------------------------------------------------
 
 6.8 Some Useful Array Methods
-SAVE POINT
 
 The array feature in Java does not come with any useful in-built routines, so we have to
 create our own methods for processing an array. These are below, with a final program
@@ -323,11 +322,30 @@ SomeUsefulArrayMethods to demonstrate usage.
 	- find the maximum value in an array
 ___________________
 
+PSEUDOCODE
 
+	SET result TO first value in array
+	LOOP FROM second element in array TO last element in array
+		BEGIN
+		IF current element > result
+			BEGIN
+			SET result TO current element
+			END
+		END
+	RETURN result
 
 6.8.1 Array Summation
 	- calculates the total of all values in an array
 ___________________
+
+PSEUDOCODE
+
+	SET total TO zero
+	LOOP FROM first element in array TO last element in array
+		BEGIN
+			SET total TO total + value of current element
+		END
+	RETURN total
 
 
 6.8.1 Array Membership
@@ -339,8 +357,26 @@ ___________________
 	- determine the position of a value in the array
 ___________________
 
+Notes To Self:
+
+There are some differences of opinion whether it is better to simply call the method and
+display the output:
+
+	System.out.println(methodName(parameter));
+
+Or store the method call in a variable, eg:
+
+	variable = methodName(parameter);
+
+The latter is best practice.
 
 
+"It is better practice to hold the output in a variable rather than calling the function
+again. The variable is going to be held in memory as long as it requires. After that
+automatic garbage collection will take care of that to free it up from the memory.
+But if you call the function, it will eat up the memory for its activation record stack
+each time it gets called. So if you want your program not to be memory hungry, its better
+to store the result in a variable and use it wherever it is required."
+- https://stackoverflow.com/questions/3383465/is-it-better-to-store-value-as-variable-or-call-method-again
 
-
-
+Also see memoisation for more info on optimising program memory.
