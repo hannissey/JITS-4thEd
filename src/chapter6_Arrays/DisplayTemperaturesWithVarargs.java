@@ -23,10 +23,17 @@ public class DisplayTemperaturesWithVarargs {
 		System.out.println("\n*** TEMPERATURES ***\n");
 		// count items and display number
 		System.out.println("Number of temperatures: " + temperatureIn.length) ;
-		// display items
-		for (int i = 0; i < temperatureIn.length; i++)
+		// display items using counter & index
+		//for (int i = 0; i < temperatureIn.length; i++)
+		//{
+		//	System.out.println(temperatureIn[i]+ " ");
+		//}
+		
+		// display items using enhanced for loop
+		for (double item: temperatureIn)
 		{
-			System.out.println(temperatureIn[i]+ " ");
+			System.out.println(item+ " ");
 		}
 	}
+	
 }

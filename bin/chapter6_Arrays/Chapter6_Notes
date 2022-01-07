@@ -147,13 +147,119 @@ element in the array.
 
 6.4 Passing Arrays as Parameters
 
+A method is used to break up programs to make them both more readable and more manageable.
+Using methods enables the code in question to be called whenever necessary, without
+duplicating large blocks of code. 
+
+Just like with variables, we can send arrays to methods to be used within that method.
+
+To give methods access to an array, we need to send the array as a parameter.
+The syntax is as follows:
+
+	static returnType methodName( datatype[] arrayName )
+	{
+		// code here
+	}
+	
+We only need the datatype, square brackets, and array name as a parameter.
+The size is not required.
+
+When sending a variable to a method, the passing parameters process copies the value of
+the variable from the actual parameters to the formal parameters, so the original value
+of the variable is not changed. This is not the case with arrays.
+
+Because the array name (eg System.out.println(temperature);) is simply a reference to the
+memory address and not where the actual values are stored, this points the program to the
+same variables used as the original array. This means that it is the original values that
+are modified within the method.
+
+This is why we can use methods to fill arrays, but not variables.
+Notice that when we send an array to a method, only the array name is used. However, when
+writing methods we still need to include the datatype[] in the method signature.
+
+Sending an array reference to a method is a great way of using memory efficiently, as it
+is only the address of the array that is sent to the method, rather than the values within
+that array.
+
+
+
 -------------------------------------------------------------
 
 6.5 Varargs
 
+You can send both arrays and multiple values to a method that uses varargs.
+It will turn any input into an array.
+
+Varargs is short for variable arguments. Instead of sending the entire array to the method,
+This feature enables us to send a collection of values to the method, as long as it is 
+the same data type.
+
+Varargs parameters are implicitly turned into arrays when they are received by a method.
+
+// METHOD SYNTAX
+
+	static returnDataType methodName(dataType... arrayNameIn)
+	{
+		// code here
+	}
+	
+We can call a varargs method using the syntax below:
+
+methodName(9.9, 3.0, 5.6);
+
+We can also call a varargs method with no values at all, the code will still run:
+
+methodName( );
+
+// Signature Order
+
+If your method needs additional parameters to run, the varargs parameter must come last
+in the parameter list otherwise the code will not compile.
+This is demonstrated in program TemperatureReadingsWithDaysOfTheWeek
+
+The reason for this is that it makes the compiler's life easier, according to stack overflow!
+https://stackoverflow.com/questions/9372916/why-is-varargs-always-the-last-parameter-in-a-method-signature
+
 -------------------------------------------------------------
 
 6.6 Returning An Array From A Method
+
+When we send an array as a parameter to a method, we do not need to return it, as the
+method has already modified the array as per the method. Remember that unlike variables,
+the original array itself can be modifed via a method.
+
+However, we may use a method to populate an array, and in this case we would need to
+return the array so it can be available to the program.
+
+SYNTAX
+
+	// this is a method
+	static dataType[] methodName() // ensure the return type matches the array data type
+	{
+		dataType[] modifiedArrayOut; // new array declared with local name
+		// code populates array
+		return modifiedArrayOut; // array local name returned
+	}
+
+Note that instead of void, double, int etc, we specify the return type of the method to be
+an array: dataType[] (eg double[] for an array containing double values, int[] for an array
+containing integers, etc)
+
+As the array is created within the method, we can create a name that is local to the method.
+dataType[] modifiedArrayOut
+
+and when we return the method, only the name is required:
+return modifiedArrayOut
+
+Note that this method does not require any parameters, so it can be called with:
+methodName();
+
+This can be assigned to a variable which will then store the result of the method, which
+is a populated array.
+
+variable = methodName();
+
+
 
 -------------------------------------------------------------
 
@@ -163,5 +269,78 @@ element in the array.
 	{
 		System.out.println(item);
 	}
+	
+The enhanced for loop is used to iterate over an array.
+The item keyword is a variable (that can be of any name) that stores
+the array value on each iteration, that lasts as long as the array length.
+Because the enhanced for loop header can be read as 'for each item in this array', it is
+also known as a for each loop. 
 
-paused 14.37 - page 138
+It is similar to the for loop but does not require a counter. Additionally, We do not need
+to specify an array element index to access the value of the element at that
+position. This makes the code a lot neater.
+
+An example:
+
+We have an array:
+int[] numberArray = {1, 2, 3, 4, 5};
+
+We simply want to display the array on the screen:
+
+	for (int number : numberArray);
+	{
+		System.out.println(number)
+	}
+
+This will display:
+
+	1
+	2
+	3
+	4
+	5
+
+See DisplayTemperaturesWithVarargs program for an example of the enhanced for loop
+replacing a for loop that uses a counter & index. The results are the same.
+
+You should only use an enhanced for loop when you:
+
+- need to access the entire array and not parts of it
+- want to see what's in the array, and not modify them
+- do not need the array index in any way
+
+
+-------------------------------------------------------------
+
+6.8 Some Useful Array Methods
+SAVE POINT
+
+The array feature in Java does not come with any useful in-built routines, so we have to
+create our own methods for processing an array. These are below, with a final program
+SomeUsefulArrayMethods to demonstrate usage.
+
+6.8.1 Array Maximum
+	- find the maximum value in an array
+___________________
+
+
+
+6.8.1 Array Summation
+	- calculates the total of all values in an array
+___________________
+
+
+6.8.1 Array Membership
+	- determine if an array holds a specified value
+___________________
+
+
+6.8.1 Array Search
+	- determine the position of a value in the array
+___________________
+
+
+
+
+
+
