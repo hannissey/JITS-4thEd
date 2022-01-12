@@ -158,21 +158,32 @@ otherwise.
 
 ==============================================================================
 
-5: (a) Describe the varargs feature of Java.
+5. 
+
+(a) Describe the varargs feature of Java.
+
+	Varargs is short for 'variable arguments'. It is represented by an ellipsis ...
+	It enables methods to take a number of parameters from an array, or a specific selection
+	rather than just a single array.
+	Varargs implicitly converts the data received into an array within the method.
+
 (b) Re-write the contains method below, from Sect. 6.8.5, to make use of
 this varargs feature:
-static boolean contains(int[] arrayIn, int valueIn)
-{
-// enhanced 'for' loop used here 
-for (int currentElement : arrayIn)
-{
-if (currentElement == valueIn)
-{
-return true; // exit loop early if value found
-}
-}
-return false; // value not present
-}
+
+	// the [] is replaced with ... and the varargs must come last in the parameter list
+	static boolean contains(int valueIn, int... arrayIn)
+	{
+		// enhanced 'for' loop used here 
+		for (int currentElement : arrayIn)
+		{
+			if (currentElement == valueIn)
+			{
+				return true; // exit loop early if value found
+			}
+		}
+		return false; // value not present
+	}
+
 (c) Give examples of different ways in which you could call this re-written
 contains method now that you have used varargs.
 6. Consider the following array declaration, to store a collection of student grades.
