@@ -8,6 +8,7 @@ public class TemperatureReadings3 {
 		double[] temperature;
 		temperature = enterTemps();
 		displayTemps(temperature);
+		wasHot(temperature);
 	}
 	
 	// method to enter temperatures returns an array
@@ -30,6 +31,18 @@ public class TemperatureReadings3 {
 		for (int i = 0; i < temperatureIn.length; i++)
 		{
 			System.out.println("day " + (i+1) + " " + temperatureIn[i]);
+		}
+	}
+	
+	// this method only shows temperature over a certain value
+	static void wasHot(double[] arrayIn)
+	{
+		for (int temp = 0; temp < arrayIn.length; temp++)
+		{
+			if (arrayIn[temp] > 18)
+			{
+				System.out.println("Day " + (temp+1 )+ " was hot standing at " + arrayIn[temp] + " degrees");
+			}
 		}
 	}
 }

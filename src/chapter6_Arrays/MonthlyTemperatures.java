@@ -31,13 +31,13 @@ public class MonthlyTemperatures {
 			{
 				case '1': 	enterTemps(temperature);
 							break;
-				case '2': 	enterTemps(temperature);
+				case '2': 	displayAllTemps(temperature);
 							break;
-				case '3': 	enterTemps(temperature);
+				case '3': 	displayWeek(temperature);
 							break;
-				case '4': 	enterTemps(temperature);
+				case '4': 	displayDays(temperature);
 							break;
-				case '5': 	enterTemps(temperature);
+				case '5': 	System.out.println("Goodbye");
 							break;
 				default: System.out.println("\nError! Options 1-5 only");
 			}
@@ -55,7 +55,7 @@ public class MonthlyTemperatures {
 		for (int week = 1; week <= temperatureIn.length; week++)
 		{
 			// the inner loop controls the day number
-			for (int day = 1; week <= temperatureIn[0].length; day++)
+			for (int day = 1; day <= temperatureIn[0].length; day++)
 			{
 				System.out.println("Enter temperature for week " + week + " and day " + day);
 				temperatureIn[week-1][day-1] = keyboard.nextDouble();
@@ -73,7 +73,7 @@ public class MonthlyTemperatures {
 			// the inner loop controls the day number
 			for (int day = 1; day <= temperatureIn[0].length; day++) 
 			{
-				System.out.println("week " + week + " day" + day + ": " + temperatureIn[week-1][day-1]);
+				System.out.println("week " + week + " day " + day + ": " + temperatureIn[week-1][day-1]);
 			}
 		}
 	}

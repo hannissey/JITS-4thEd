@@ -473,6 +473,46 @@ With multi-dimensional arrays, we need to use nested for loops to process each r
 The program above will iterate through the entire array, each row and each column.
 If you wanted to only process one row or one column, a single loop would suffice.
 
+-------------------------------------------------------------
+
+6.10 Ragged Arrays
+
+A ragged array is a multi-dimensional array with a variable number of columns. 
+To declare and initialise an array containing the letters of animal words, we would use the
+following code:
+
+	// this creates a 2-d ragged array
+	char[][] animals =	{
+							{'M', 'O', 'N', 'K', 'E', 'Y'}, // 6 columns
+							{'C', 'A', 'T'}, // 3 columns
+							{'B', 'I', 'R', 'D'} // 4 columns
+						};
+
+Usually we don't know the values of an array at the point of initialisation, but to declare
+an empty ragged array we will need to specify the number of rows, but not columns, eg:
+
+	// the columns are left unspecified
+	char[] animals = double[3][];
+	
+The array has been created, and we can initialise the number of columns in each row as follows:
+
+	animals[0] = new char[6]; for MONKEY
+	animals[1] = new char[3]; for CAT
+	animals[2] = new char[4]; for BIRD
+	
+It's important to remember that the first index in multi-dimensional arrays reference the
+number of rows, and the next index the number of columns. We can easily navigate through and
+refer to any position in the array using this format.
+
+When using ragged arrays it is useful to make sure you are creating the right amount of
+columns per row. Use the .length attribute to check:
+
+	System.out.println(animals[0].length); // displays 6
+	System.out.println(animals[1].length); // displays 3
+	System.out.println(animals[2].length); // displays 4
+ 
+
+
 
 	
 

@@ -1,0 +1,221 @@
+
+Chapter 6 - Arrays
+6.11 Self-Test Questions
+
+1. When is it appropriate to use an array in a program?
+
+If you need to store data that is sequential, or of the same data type, it makes sense to
+store this in a list, or array, rather than using multiple variables.
+
+2. Consider the following explicit creation of an array:
+	
+	int[] someArray = {2,5,1,9,11};
+	
+(a) What would be the value of someArray.length?
+
+	5, because there are 5 elements in the array
+
+(b) What is the value of someArray[2]?
+	
+	1, because 1 is the 3 element in the array at position 2
+
+(c) What would happen if you tried to access someArray[6]?
+
+	You would get an exception error.
+
+(d) Create the equivalent array by using the new operator and then assigning
+the value of each element individually.
+
+	int[] someArray = new int[5];
+	
+	someArray[0] = 2;
+	someArray[1] = 5;
+	someArray[2] = 1;
+	someArray[3] = 9;
+	someArray[4] = 11;
+
+(e) Write a standard for loop that will double the value of every item in
+someArray.
+
+	for (int i = 0; i < someArray.length; i++)
+	{
+		System.out.println(someArray[i] * 2);
+	} 
+
+(f) Explain why, in this example, it would not be appropriate to use an
+enhanced for loop.
+
+	We cannot use an enhanced for loop here because we need the loop counter variable to
+	access each element and modify it. Using the enhanced for loop does not modify the values
+	within the array.
+
+(g) Use an enhanced for loop to display the values inside the array.
+
+	// don't forget the data type!!
+	for (int item : someArray)
+	{
+		System.out.println(item);
+	}
+
+(h) Modify the enhanced for loop above so that only numbers greater than 2
+are displayed.
+
+	for (item : someArray)
+	{
+		if (item > 2)
+		{
+			System.out.println(item);
+		}
+	}
+
+3. Look back at the program TemperatureReadings3 from Sect. 6.6, which
+read in and displayed a series of temperature readings. Design and write the
+code for an additional method, wasHot, which displays all days that recorded
+temperatures of 18° or over.
+
+	PSEUDOCODE for method wasHot
+	
+	BEGIN wasHot
+		LOOP through array
+			IF temperature > 18
+				PRINT day
+		END
+	END
+	
+	static void wasHot(double[] arrayIn) // don't forget data type
+	{
+		for (int day = 0; day <= arrayIn.length; day++) // don't forget .length attribute
+		{
+			if (arrayIn[day] > 18)
+			{
+				System.out.println("Day" + (day + 1) "was hot");
+			}
+		}
+	}
+	
+	Method call:
+	wasHot(arrayIn);
+		
+
+4. Assume that an array has been declared in main as follows:
+
+	int[] javaStudents;
+	
+This array is to be used to store a list of student exam marks. Now, for each of
+the following methods, write the code for the given method and the instruction
+in main to call this method:
+
+(a) A method, enterExamMarks, that prompts the user to enter some exam
+marks (as integers), stores the marks in an array and then returns this array.
+
+	static int[] enterExamMarks()
+	{
+		int[] examMarksOut = new int[10];
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		for (int i = 0; i <= examMarksOut.length; i++)
+		{
+			System.out.println("Please enter exam mark for Student " + (i+1) + " : ";
+			examMarksIn[i] = keyboard.nextInt();
+		}
+		
+		return examMarksOut;
+	}
+	
+	Method call in main:
+	enterExamMarks();
+
+(b) A method, increaseMarks, that accepts an array of exam marks and
+increases each mark by 5.
+
+	static void increaseMarks(int[] examMarksIn) // don't forget data type!
+	{
+		for(int i = 0; i < examMarksIn.length; i++) // always less than < the length
+		{
+			examMarksIn[i] = examMarksIn[i] + 5;
+		}
+	}
+	
+	Method call in main:
+	increaseMarks(arrayIn);
+
+(c) A method, allHavePassed, that accepts an array of exam marks and
+returns true if all marks are greater than or equal to 40, and false
+otherwise.
+
+	static boolean allHavePassed(examMarksIn)
+	{
+		int sum = 0;
+		
+		for(int i = 0; i <= examMarksIn.length; i++)
+		{
+			sum = sum + examMarksIn[i];
+		}
+		
+		return (sum / examMarksIn.length) >= 40;
+	}
+
+==============================================================================
+
+5: (a) Describe the varargs feature of Java.
+(b) Re-write the contains method below, from Sect. 6.8.5, to make use of
+this varargs feature:
+static boolean contains(int[] arrayIn, int valueIn)
+{
+// enhanced 'for' loop used here 
+for (int currentElement : arrayIn)
+{
+if (currentElement == valueIn)
+{
+return true; // exit loop early if value found
+}
+}
+return false; // value not present
+}
+(c) Give examples of different ways in which you could call this re-written
+contains method now that you have used varargs.
+6. Consider the following array declaration, to store a collection of student grades.
+char [][] grades = new char[4][20];
+Grades are recorded for 4 tutorial groups, and each tutorial group consists of 20
+students.
+(a) How many dimensions does this array have?
+(b) What is the value of grades.length?
+(c) What is the value of grades[0].length?
+(d) Write the instruction to record the grade ‘B’ for the first student in the first
+tutorial group.
+7. Consider the following scenarios and, for each, declare the appropriate array:
+(a) goals: an array to hold the number of goals each team in a league scores
+in each game of a season. The league consist of 20 teams and a season
+consists of 38 games.
+(b) seats: an array to record whether or not a seat in a theatre is booked or not.
+There are 70 rows of seats in the theatre and each row has 20 seats.
+6.11 Self-test Questions 159
+8. Consider the MonthlyTemperatures program of Sect. 6.9.4. Write an
+additional method, max, that returns the maximum temperature recorded in the
+given two-dimensional array.
+Hint: look back at the algorithm for finding the maximum value in a onedimensional array in Sect. 6.8.1
+9. Consider an application that records the punctuality of trains on a certain route.
+(a) Declare a 2D array, late, to hold the number of times a train on this route
+was late for each day of the week, and for each week of the year.
+(b) Write a fragment of code that adds up the total number of days in the year
+when a train was late more than twice in a given day.
+10. A magic word square is a square in which a word can be formed by reading
+each row and each column. For example, the following is a 4 by 4 magic word
+square:
+‘P’ ‘R’ ‘E’ ‘Y’
+‘L’ ‘A’ ‘V’ ‘A’
+‘O’ ‘V’ ‘E’ ‘R’
+‘T’ ‘E’ ‘N’ ‘D’
+(a) Declare and initialize a 2D array, magicSquare, to hold the words
+illustrated above.
+(b) Write a method, displayRow, that accepts the magicSquare array and
+a row number and displays the word in that row.
+(c) Write a method, displayColumn, that accepts the magicSquare array
+and a column number and displays the word in that column.
+11. (a) Distinguish between a regular 2D array and a ragged array.
+(b) Write instructions to create a ragged 2D array of integers, called triangle, that has the following form:
+160 6 Arrays
+(c) Write a fragment of code to find the largest number in the triangle
+array.
+6
