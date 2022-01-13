@@ -2,7 +2,7 @@ package chapter6_Arrays;
 
 import java.util.Scanner;
 
-public class SelfTestQuestionsStudents {
+public class Q3_StudentScores {
 	
 	public static void main(String[] args)
 	{

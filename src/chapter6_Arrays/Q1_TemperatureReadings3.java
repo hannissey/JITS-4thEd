@@ -2,7 +2,7 @@ package chapter6_Arrays;
 
 import java.util.Scanner;
 
-public class TemperatureReadings3 {
+public class Q1_TemperatureReadings3 {
 	public static void main(String[] args)
 	{
 		double[] temperature;

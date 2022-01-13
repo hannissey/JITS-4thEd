@@ -403,7 +403,13 @@ Remember, all arrays begin at 0, and multi-dimensional arrays are no different.
 double [][] temperature ; // declares a 2D array
 temperature = new double [4][7]; // creates memory for a 4 by 7 array, with 4 rows and 7 columns
 
+Alternatively:
 
+// this creates a 2 dimensional array with two rows and four columns
+	int[][] a2DArray = 	{ 
+							{ 11, -25, 4, 77},
+							{-21, 55, 43, 11}
+						};
 
 For larger multi-dimensional arrays, we use further pairs of brackets to initialise 
 dimensions, eg:

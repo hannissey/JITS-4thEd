@@ -166,6 +166,8 @@ otherwise.
 	It enables methods to take a number of parameters from an array, or a specific selection
 	rather than just a single array.
 	Varargs implicitly converts the data received into an array within the method.
+	** Each method can only have one varargs parameter
+	** The varargs argument must be the last parameter
 
 (b) Re-write the contains method below, from Sect. 6.8.5, to make use of
 this varargs feature:
@@ -186,47 +188,141 @@ this varargs feature:
 
 (c) Give examples of different ways in which you could call this re-written
 contains method now that you have used varargs.
+
+I am uncertain how to call varargs, apart from in the very simply example which simply
+turns the list of variables/values sent to the method into an array.
+
+Eg:
+
+	public class PlayingWithVarargs {
+		public static void main(String[] args)
+		{
+			System.out.println("Display multiple arguments as an array");
+			varargsMethod(1,2,3,4,5,6,7,8,9,10);
+			
+		}
+		
+		static void varargsMethod(int... valuesIn)
+		{
+			for (int item : valuesIn)
+			{
+				System.out.println(item);
+			}
+		}
+	}
+
 6. Consider the following array declaration, to store a collection of student grades.
-char [][] grades = new char[4][20];
+
+	char [][] grades = new char[4][20];
+	// This will create an array of 4 rows and 20 columns
+	
 Grades are recorded for 4 tutorial groups, and each tutorial group consists of 20
 students.
+
 (a) How many dimensions does this array have?
+
+	It has 80 elements.
+
 (b) What is the value of grades.length?
+
+	4
+
 (c) What is the value of grades[0].length?
+
+	20
+	
 (d) Write the instruction to record the grade ‘B’ for the first student in the first
 tutorial group.
+
+	grades[0][0] = 'B';
+
 7. Consider the following scenarios and, for each, declare the appropriate array:
+
 (a) goals: an array to hold the number of goals each team in a league scores
 in each game of a season. The league consist of 20 teams and a season
 consists of 38 games.
+
+	int[][] goals = new int[20][38];
+
 (b) seats: an array to record whether or not a seat in a theatre is booked or not.
 There are 70 rows of seats in the theatre and each row has 20 seats.
-6.11 Self-test Questions 159
+
+	int[][] seats = new int[70][20];
+
 8. Consider the MonthlyTemperatures program of Sect. 6.9.4. Write an
 additional method, max, that returns the maximum temperature recorded in the
 given two-dimensional array.
+
 Hint: look back at the algorithm for finding the maximum value in a onedimensional array in Sect. 6.8.1
+
+	See program MonthlyTemperatures2 for the answer to this question.
+
 9. Consider an application that records the punctuality of trains on a certain route.
+
+	See program TrainData for the answer to this section.
+
 (a) Declare a 2D array, late, to hold the number of times a train on this route
 was late for each day of the week, and for each week of the year.
+
 (b) Write a fragment of code that adds up the total number of days in the year
 when a train was late more than twice in a given day.
+
 10. A magic word square is a square in which a word can be formed by reading
 each row and each column. For example, the following is a 4 by 4 magic word
 square:
-‘P’ ‘R’ ‘E’ ‘Y’
-‘L’ ‘A’ ‘V’ ‘A’
-‘O’ ‘V’ ‘E’ ‘R’
-‘T’ ‘E’ ‘N’ ‘D’
+
+	‘P’ ‘R’ ‘E’ ‘Y’
+	‘L’ ‘A’ ‘V’ ‘A’
+	‘O’ ‘V’ ‘E’ ‘R’
+	‘T’ ‘E’ ‘N’ ‘D’
+
 (a) Declare and initialize a 2D array, magicSquare, to hold the words
 illustrated above.
+
 (b) Write a method, displayRow, that accepts the magicSquare array and
 a row number and displays the word in that row.
+
 (c) Write a method, displayColumn, that accepts the magicSquare array
 and a column number and displays the word in that column.
-11. (a) Distinguish between a regular 2D array and a ragged array.
-(b) Write instructions to create a ragged 2D array of integers, called triangle, that has the following form:
-160 6 Arrays
+
+	See program MagicWordSquare for the answers to this section.
+
+11. 
+(a) Distinguish between a regular 2D array and a ragged array.
+
+	A regular 2D array has a neat number of columns, ie:
+	
+	int[][] regularArray = 	{
+								{1, 2, 3, 4, 5},
+								{2, 3, 4, 5, 7},
+								{8, 5, 3, 2, 8}
+							};
+	
+	A ragged array has an irregular number of columns, ie:
+	
+	int[][] raggedArray = 	{
+								{1, 2, 3},
+								{7, 4, 5, 2, 6, 9, 0},
+								{2, 4}
+							};
+
+(b) Write instructions to create a ragged 2D array of integers, called triangle, that has the following form:
+	(see page 175 in PDF doc for diagram)
+	
+	To create this ragged array, we will have to declare and initialise an array
+	specifying only rows, as below:
+	
+	int[][] triangle = new triangle[4][];
+
 (c) Write a fragment of code to find the largest number in the triangle
 array.
-6
+
+	This will be the same as the syntax for finding the max number in previous programs;
+		create method that takes in a 2D array
+		declare & initialise variable to store max number
+		loop through row
+			loop through columns
+				if the item is larger than the previously declared largest item, 
+				assign to variable
+		return variable
+				
