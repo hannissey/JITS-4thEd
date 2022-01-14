@@ -1,0 +1,259 @@
+
+
+Chapter 7 - Classes And Objects
+
+-------------------------------------------------------------
+
+Learning Outcomes:
+	
+	• explain the meaning of the term object-oriented;
+	• explain and distinguish between the terms class and object;
+	• create objects in Java;
+	• call the methods of an object;
+	• use a number of methods of the String class;
+	• create and use arrays of objects;
+	• create an ArrayList and make use of the add and get methods of this class.
+		
+-------------------------------------------------------------
+
+7.1 Introduction
+
+Object-oriented programming languages (often known as OOP) are languages that use
+classes and objects.
+OOP consists of defining one or more classes that may interact with each other.
+
+A class is a data type that can hold all types of information.
+Instead of being restricted to a variable that can only hold a single piece of data, a class
+can hold multiple pieces of data.
+
+- A variable can hold a single piece of information.
+- An array can hold multiple types of information of the same data type.
+- A class can hold multiple pieces and types of information, including methods to manipulate
+that information.
+
+There are two aspects to a class:
+
+- attibutes: the data that it holds
+- methods: the tasks it can perform
+
+A class is essentially the 'factory' from which 'objects' are created.
+An object is an individual instance of a class.
+
+A single program can have many classes, to enable us to create different objects.
+
+-------------------------------------------------------------
+
+7.4 The Oblong Class
+
+(We will need to download the Oblong.java file from the JITS website later)
+
+Once we have access the the Oblong class, we will be able to write declarations like this:
+
+	Oblong myOblong;
+
+We are declaring a new oblong called myOblong, using the Oblong class.
+This creates a variable that holds a reference to an object, rather than the object itself.
+No space has been allocated for myOblong, instead we have claimed a piece of memory for
+myOblong to be stored.
+
+When we create a class, this process is called instantiation.
+To instantiate a object, we use a method of the class called a constructor.
+
+The constructor is a method within a class that:
+- always has the same name as the class
+- reserves memory for the object to be created
+- details what info is required for the object to be created
+
+So say we want to create a new oblong.
+First we can declare our new oblong, and create a memory address for the oblong:
+
+	Oblong myOblong
+	
+Then, we create the object itself, by calling the constructor and giving it the info it needs.
+In this case it is the height and length of the oblong, which is passed to the constructor as
+below:
+
+	myOblong = new Oblong(7.5, 12.5);
+
+We can also, like with arrays, declare and initialise with one line of code:
+	
+	Oblong myOblong = new Oblong(7.5, 12.5);
+	
+Now whenever we wish to refer to our Oblong object, we can use myOblong.
+
+We have been using the Scanner class to create a new object (keyboard) to read the user input:
+
+	Scanner keyboard = new Scanner(System.in);
+	
+This line calls the constructor, and sends in the parameter System.in.
+
+Encapsulation is an important part of OOP. It protects the data by ensuring that the
+attributes within the class cannot be accessed directly - they can only be interacted with
+via the pre-defined methods.
+We can only interact with a class via its methods, we do not need to know how the methods
+work. This is another important aspect of encapsulation.
+
+The only things we need to know to interact with a method are:
+	- the method names
+	- what the method does
+	- what data the method needs
+	- what data the method returns
+	
+A list of the method's inputs and outputs is referred to as the method's interface;
+not to be confused with the user interface, that can be console applications or GUIs.
+	
+Referring back to creating the new oblong object using the constructor:
+
+	Oblong myOblong = new Oblong(7.5, 12.5);
+	
+The Oblong class that has been created for us, but not yet revealed (to demonstrate
+encapsulation) does have methods that enable us to set a new length and height, and then
+return these values (display them on the screen).
+
+So, say that we have created our new oblong, myOblong as above, but we set the height
+incorrectly. We can use the setHeight method to correct this:
+
+	myOblong.setheight(5.0);
+	
+This will then overwrite the initial height with the corrected height.
+	
+To call a method of an object, we use the object name, the dot operator and the method name
+along with the new data:
+
+	objectName.methodName(value);
+	
+When we have called methods previously when we were working within a single class, we
+called methods like this:
+
+	displayArray(someArray);
+	poundsToKilos(pounds);
+	
+This is shorthand for:
+
+	this.displayArray(someArray);
+	this.poundsToKilos(pounds);
+	
+The keyword this tells your program the method you wish to use is present in the same class,
+rather than another class.
+
+As you progress, you will need to use the this keyword to tell your program in which class
+the method is present.
+
+When a object reference is first created, it is given a value of null.
+A null value indicates there is no storage allocated.
+
+	Oblong myOblong; // myOblong has a null value
+	
+-------------------------------------------------------------
+
+7.6 Strings
+
+String is a built-in class in Java that enables us to process strings, which unlike
+primitive data-types such as int, char, etc, are sequences of characters.
+
+Despite String being a class, Java lets us declare and intialise strings in the same way
+as variables that hold primitive data-types:
+
+	String name = "Charlie";
+	
+In actual fact, this is just shorthand for creating a String object, name, using the String
+constructor, as below:
+
+	String name = new String("Charlie");
+
+The String class is the ONLY class that enables us to create a new object using the
+assignment operator.
+
+-------------------------------------------------------------
+
+7.6 Obtaining Strings from the keyboard
+
+* Refer to program StringTest.java for this section.
+
+To get the user input for strings, we need to call the next() method of Scanner.
+Recall that we use the Scanner methods below for different data types:
+
+	int 	keyboard.nextInt();
+	char 	keyboard.next().charAt(0);
+	double  keyboard.nextDouble();
+	String  keyboard.next();
+	* See the table below for more String methods.
+	
+Be careful when using keyboard.next() and don't use whitespace in your strings.
+
+Overloading/polymorphism
+
+Overloading in Java comes from when elements with the same name are used for different
+purposes. This is also known as polymorphism which means "different forms".
+
+Notice we use the + operator for two distinct purposes in the program:
+
+	concatenation	("Hello " + name);
+	addition		(age + 1);
+
+-------------------------------------------------------------
+
+7.6.2 The Methods of the String Class
+
+Below you will find some useful methods and how they work:
+
+Method				Description								Inputs		Output	
+________________________________________________________________________________
+
+length				returns length of string				none		int
+--------------------------------------------------------------------------------
+charAt				accepts integer and returns char at		int			char
+					that position in the string
+--------------------------------------------------------------------------------
+substring			accepts 2 integers (eg m and n) and 	two ints	String		
+					returns a copy	of a chunk of the 
+					string
+					The chunk starts at m and ends at n-1
+--------------------------------------------------------------------------------
+concat				Accepts a new string, joins string to 	String		String
+					another, and returns entire string
+--------------------------------------------------------------------------------
+toUpperCase			returns copy of string in UPPERCASE		none		String
+--------------------------------------------------------------------------------
+toLowerCase			returns copy of string in lowercase		none		String
+--------------------------------------------------------------------------------
+compareTo			accepts an object (ie myString and 		String		int
+					compares it to the object's string. 
+					It returns:
+					- 0 if strings are identical
+					- a negative number if string comes
+					before myString in the alphabet
+					- a positive number if the number
+					comes afterwards
+--------------------------------------------------------------------------------
+equals				accepts object and compares it to		String		boolean
+					another object. Returns true if
+					objects are identical, or false if
+					not
+--------------------------------------------------------------------------------
+equalsIgnoreCase	accepts a string and compares to		String		boolean
+					original string. returns true if
+					strings are identical (ignoring
+					case) and false if they are not
+--------------------------------------------------------------------------------
+startsWith			accepts a string and returns true if	String		boolean
+					original string starts with that
+					string, eg "hello world" starts with
+					"h", "he", "hel" and so on
+--------------------------------------------------------------------------------
+endsWith			accepts a string and returns true if	String		boolean
+					original string ends with that
+					string, eg "hello world" ends with
+					"d", "ld", "rld" and so on		
+--------------------------------------------------------------------------------
+trim				returns a String object with any		None		String
+					spaces (whitespace) removed		
+--------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------
+
+7.6.3 Comparing Strings
+
+Stopping for the day!
