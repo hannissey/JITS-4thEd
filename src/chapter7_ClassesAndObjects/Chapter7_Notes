@@ -238,7 +238,7 @@ equalsIgnoreCase	accepts a string and compares to		String		boolean
 --------------------------------------------------------------------------------
 startsWith			accepts a string and returns true if	String		boolean
 					original string starts with that
-					string, eg "hello world" starts with
+					string, eg "7.6.3hello world" starts with
 					"h", "he", "hel" and so on
 --------------------------------------------------------------------------------
 endsWith			accepts a string and returns true if	String		boolean
@@ -256,4 +256,21 @@ trim				returns a String object with any		None		String
 
 7.6.3 Comparing Strings
 
-Stopping for the day!
+When comparing two objects, such as Strings, we should use the equals method.
+
+To compare two strings, firstString and secondString, you would use the syntax below:
+
+	if(firstString.equals(secondString))
+	{
+		// instructions here
+	}
+	
+A common mistake for programmers is to use the equality operator to compare strings,
+eg
+
+	firstString == secondString;
+	
+This will not cause a compilation error, but this will not do what you intend either.
+The above code simply finds out whether the objects have the same memory address. 
+It will not compare the value of string attributes of the objects.
+
