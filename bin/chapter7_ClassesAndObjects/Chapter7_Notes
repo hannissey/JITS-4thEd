@@ -217,7 +217,7 @@ toUpperCase			returns copy of string in UPPERCASE		none		String
 --------------------------------------------------------------------------------
 toLowerCase			returns copy of string in lowercase		none		String
 --------------------------------------------------------------------------------
-compareTo			accepts an object (ie myString and 		String		int
+compareTo			accepts an object (ie myString) and 	String		int
 					compares it to the object's string. 
 					It returns:
 					- 0 if strings are identical
@@ -238,7 +238,7 @@ equalsIgnoreCase	accepts a string and compares to		String		boolean
 --------------------------------------------------------------------------------
 startsWith			accepts a string and returns true if	String		boolean
 					original string starts with that
-					string, eg "7.6.3hello world" starts with
+					string, eg "hello world" starts with
 					"h", "he", "hel" and so on
 --------------------------------------------------------------------------------
 endsWith			accepts a string and returns true if	String		boolean
@@ -258,19 +258,151 @@ trim				returns a String object with any		None		String
 
 When comparing two objects, such as Strings, we should use the equals method.
 
-To compare two strings, firstString and secondString, you would use the syntax below:
+equals()
 
-	if(firstString.equals(secondString))
-	{
-		// instructions here
-	}
+	To compare two strings, firstString and secondString, you would use the syntax below:
 	
-A common mistake for programmers is to use the equality operator to compare strings,
-eg
+		if(firstString.equals(secondString))
+		{
+			// instructions here
+		}
+		
+	A common mistake for programmers is to use the equality operator to compare strings,
+	eg
+	
+		firstString == secondString;
+		
+	This will not cause a compilation error, but this will not do what you intend either.
+	The above code simply finds out whether the objects have the same memory address. 
+	It will not compare the value of string attributes of the objects.
+	
+compareTo()
 
-	firstString == secondString;
+		Remember that compareTo() returns an integer on whether an object comes
+		before or after it in the alphabet. it will go through each letter until 
+		finding a difference. If the strings are identical, it returns 0.
+		
+		Upper-case letters come before lowercase letters as their Unicode value is lower.
+		So when using the compareTo() method and you input Strings Apple and apple, Apple
+		will come before apple.
+		
+7.6.4 Entering Strings containing Spaces
+
+When we use the next() method to process a String input by the user, there is an issue
+where whitespace is considered the end of the input, so looking at the program below:
+
+	Scanner keyboard = new Scanner(System.in);
+	System.out.println("Enter string: ");
+	input = keyboard.next();
+
+The user would input "Hello World", and only "Hello" would be assigned to variable input.
+To process strings containing white space, the method nextLine() is necessary.
+
+However, using nextLine() alongside nextInt or nextDouble in the same program, can cause
+conflicts. This is due to using the same Scanner object to process all inputs - it is best
+to create a unique Scanner object to only process Strings. See StringExample2 for an example.
+
+7.7 Our Own Scanner Class for Keyboard Input
+
+Issues can arise when using the Scanner class to obtain keyboard input from the user, ie
+
+- we need to create a new Scanner object within every method
+- there's no easy way to obtain a single character eg keyboard.next().charAt(0)
+- using next() to get strings can cause issues due to whitespace
+
+7.8 The Console Class
+
+I have typed this out and saved it, however it does not work in the IDE as stated.
+Will look into using console to do programming in future.
+
+7.9 The BankAccount Class
+
+We have the BankAccount.java file which contains the BankAccount class which will be looked
+in more detail in the next chapter.
+
+We don't need to know how it works just yet (due to encapsulation), however we do need to
+know what the class requires in terms of data, and what methods it has.
+
+The BankAccount class has these attributes:
+
+	String = account number
+	String = account name
+	double = account balance
 	
-This will not cause a compilation error, but this will not do what you intend either.
-The above code simply finds out whether the objects have the same memory address. 
-It will not compare the value of string attributes of the objects.
+The methods are listed below:
+
+Method				Description								Inputs		Output	
+________________________________________________________________________________
+
+BankAccount			the constructor							2 x 		n/a
+															string
+					accepts two strings and assigns them	objects
+					to the account name & number.
+					Also initialises balance to 0
+--------------------------------------------------------------------------------
+getAccountNumber	returns account number					none		String
+--------------------------------------------------------------------------------
+getAccountName		returns account name					none		String
+--------------------------------------------------------------------------------
+getBalance			returns balance							none		double
+--------------------------------------------------------------------------------
+deposit				accepts a double data data type			double		none
+					and adds to the balance
+--------------------------------------------------------------------------------
+withdraw			accepts a double, then uses an if		double		boolean
+					statement to check if there is 
+					enough to cover the amount.
+					If false, the method terminates and
+					returns false.
+					If true, the method subtracts the
+					double input from the balance and
+					returns true.
+--------------------------------------------------------------------------------
+
+7.11 The ArrayList Class
+
+Arrays can seem a bit clunky to work with. This is because arrays are a "low-level"*
+construct and work in the same way as computers store items in memory. 
+Programming languages make it easy for a programmer to code by providing what is known
+as "higher level"** classes that reflect how we do things in real life, rather than how
+computers process data.
+
+* Remember that 'low level' in computing refers to machine or assembly language.
+These are languages that, as humans, are hard to work with due to little or no abstraction.
+
+** 'Higher level' languages are those that are closer to human language that machine 
+language, therefore easier to work with and understand.
+
+An example of higher level classes in Java are collection classes.
+These allow programmers to deal with collections with methods in an easier way.
+Collection classes are examples of generic classes.
+
+When declaring a collection class we use the following syntax:
+
+	ArrayList<BankAccount> accountList
+	
+	The type of object is in <>
+	This results in accountList holding a list of BankAccount s
+	
+The full declaration is below:
+
+	ArrayList<BankAccount> accountList = new ArrayList<>(); 
+	
+	The <> (diamond) is empty because we do not need to re-state the object type.
+	The compiler uses type inference (so it reads the first part of the declaration
+	and knows the new ArrayList<>() will hold <BankAccount>s
+	
+	ArrayLists are more flexible than arrays because they do not need to be initialised
+	with a size, they are dynamic and expand & contract accordingly.
+
+Compare this to how we declared our BankAccount object array:
+
+	BankAccount[] accountList = new BankAccount[3];
+	
+When using ArrayList:
+
+- we need to import the library: import java.util.ArrayList;
+- we do not need to specify how many items will be in the list
+- ArrayList can only hold objects, not primitive data types (for now!)
+	
 

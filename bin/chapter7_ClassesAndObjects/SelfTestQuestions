@@ -1,0 +1,144 @@
+
+Chapter 7 - Classes & Objects
+7.12 Self-test Questions
+
+1. Examine the program below and then answer the questions that follow:
+
+	public class SampleProgram
+	{
+		public static void main(String[] args)
+		{
+			Oblong oblong1 = new Oblong(3.0,4.0);
+			Oblong oblong2 = new Oblong(5.0,6.0);
+			System.out.println("The area of oblong1 is " + oblong1.calculateArea());
+			System.out.println("The area of oblong2 is " + oblong2.calculateArea());
+		}
+	}
+	
+(a) By referring to the program above distinguish between a class and an object.
+
+	The class is Oblong, the objects are oblong1 and oblong2.
+	We are using the class Oblong to create objects oblong1 and oblong2.
+
+(b) By referring to the program above explain the purpose of the constructor.
+
+	The constructor is a method within the class that creates a new instance of the object.
+	It creates a new oblong with the parameters it is given, so in the first instance,
+	a new Oblong object is constructed using the data 3.0 and 4.0.
+	
+(c) By referring to the program above explain how you call the method of one
+class from another class.
+
+	We call the method of a class by using the object name, the dot operator and method call:
+	object.methodName();
+
+(d) What output would you expect to see from the program above? 
+
+	The area of oblong1 is 12.0
+	The area of oblong2 is 30.0
+	
+2. 
+
+(a) Write the code that will create two BankAccount objects, acc1 and
+acc2. The account number and account name of each should be set at the
+time the object is created.
+
+	BankAccount acc1 = new BankAccount("847940", "Janet Edwards");
+	BankAccount acc2 = new BankAccount("672940", "Peter Stevens");
+
+(b) Write the lines of code that will deposit an amount of 200 into acc1 and
+100 into acc2.
+
+	acc1.deposit(200);
+	acc2.deposit(100);
+
+(c) Write the lines of code that attempt to withdraw an amount of 150 from
+acc1 and displays the message “WITHDRAWAL SUCCESSFUL” if the
+amount was withdrawn successfully and “INSUFFICIENT FUNDS” if it
+was not.
+
+	boolean ok;
+	ok = acc1.withdraw(150);
+	if(ok)
+	{
+		System.out.println("WITHDRAWAL SUCCESSFUL");
+	}
+	else
+	{
+		System.out.println("INSUFFICIENT FUNDS");
+	}
+	
+
+(d) Write a line of code that will display the balance of acc1.
+
+	acc1.getBalance();
+
+(e) Write a line of code that will display the balance of acc2.
+
+	acc2.getBalance();
+	
+3. In what way does calling methods from the EasyScanner class differ from
+calling methods from the other classes you have met (BankAccount,
+Oblong, String and Scanner)?
+
+	Calling methods from the EasyScanner class needs no parameters.
+	
+4. Consider the following fragment of code that initializes one string constant with
+a password (“java”) and creates a second string to hold the user’s guess for the
+password. The user is then asked to enter their guess:
+
+(a) Write a line of code that uses the EasyScanner class to read the guess
+from the keyboard.
+
+	guess = EasyScanner.nextString();
+
+(b) Write the code that displays the message “CORRECT PASSWORD” if the
+user entered the correct password and “INCORRECT PASSWORD” if not.
+
+	boolean result = PASSWORD.equals(guess);
+	if(result)
+	{
+		System.out.println("CORRECT PASSWORD");
+	}
+	else
+	{
+		System.out.println("INCORRECT PASSWORD");
+	}
+	
+5. How do arrays of objects differ from arrays of primitive types?
+
+	Arrays of objects contain references to the value, rather than the value itself.
+	
+6. 
+
+(a) Declare an array called rooms, to hold three Oblong objects. Each
+Oblong object will represent the dimensions of a room in an apartment.
+
+	Oblong[] rooms = new Oblong[3];
+
+(b) The three rooms in the apartment have the following dimensions:
+Add three appropriate Oblong objects to the rooms array to represent
+these 3 rooms.
+
+	rooms[0] = oblong1(5.2,4.7);
+	rooms[1] = oblong2(5.2,5.7);
+	rooms[2] = oblong3(8.1,5.0);
+
+(c) Write the line of code that would make use of the rooms array to display
+the area of room 3 to the screen.
+
+	for (Oblong item : rooms)
+	{
+		System.out.println("The area of Room 2 is " + rooms[2]);
+	}
+	
+7. Repeat the previous question using and ArrayList instead of an array.
+
+	import java.util.ArrayLists
+	
+	ArrayList<Oblong> rooms = new ArrayList<>();
+
+	rooms.add(new oblong1(5.2,4.7));
+	rooms.add(new oblong2(5.2,5.7));
+	rooms.add(new oblong3(8.1,5.0));
+	
