@@ -55,6 +55,8 @@ public class Q3_StringComparison {
 		// finding a difference. If the strings are identical, it returns 0
 		int comparison;
 		comparison = string1In.compareTo(string2In);
+			
+		
 		if(comparison < 0) // compareTo returned a negative number
 		{
 			System.out.println(string1In + " comes before " + string2In + " in the alphabet ");
