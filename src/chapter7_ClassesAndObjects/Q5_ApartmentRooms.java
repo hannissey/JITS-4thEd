@@ -11,7 +11,6 @@ public class Q5_ApartmentRooms {
 		// attributes
 		char choice = 'a';
 		Oblong[] apartmentRooms = inputDimensions();
-		String[] roomNames;
 		
 		System.out.println("Hi! Welcome to our Room Dimensions Program");
 		
