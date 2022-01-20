@@ -6,6 +6,7 @@ public class Oblong {
 	// the attributes
 	private double length;
 	private double height;
+	private String name;
 	
 	// the methods
 	
@@ -43,5 +44,6 @@ public class Oblong {
 	{
 		return (length * height) * 2;
 	}
+	
 	
 }
