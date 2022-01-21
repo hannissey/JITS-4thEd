@@ -207,3 +207,54 @@ When we pass an array it is the memory location (or address, or reference) that 
 and so because the method can access the array elements these values can be modified.
 
 What about objects?
+
+The program ParameterTest demonstrates that objects sent to a method modifies the
+attributes of that object.
+
+This is because the 'object' testAccount is a reference, and will point the method to the
+location where the original value is stored, where it is then modified. 
+
+Passing objects as parameters and static attributes need to be handled with care to ensure
+original values are never overwritten by an errant program.
+
+-------------------------------------------------------------
+
+8.8 Collection Classes
+
+A collection class is a class that holds a collection of objects.
+We have been working with collection classes using the ArrayList class which holds a 
+collection of objects of a specific type.
+
+We have also been using a couple of ArrayList methods, and here are the most useful:
+
+	// declare ArrayList
+	ArrayList<String> flowers = new ArrayList<String>();
+	
+	// add item
+	flowers.add("tulip");
+	
+	// access an item
+	flowers.get(0);
+	
+	// change an item
+	flowers.set(0, "rose");
+	
+	// remove an item
+	flowers.remove(0);
+	
+	// remove all items
+	flowers.clear();
+	
+	// return size of ArrayList
+	flowers.size();
+
+
+
+
+
+
+
+
+
+
+
