@@ -14,9 +14,11 @@ public class Q5_ApartmentRooms2 {
 		
 		// create array of references
 		Oblong[] apartmentRooms = new Oblong[rooms];
+		String[] names = new String[rooms];
 		
 		// Room 1
-		System.out.println("Room 1");
+		System.out.println("Please input name of room: ");
+		names[0] = EasyScanner.nextString();
 		System.out.println("Please input length:");
 		length = EasyScanner.nextDouble();
 		System.out.println("Please input height:");
@@ -24,6 +26,8 @@ public class Q5_ApartmentRooms2 {
 		apartmentRooms[0] = new Oblong(length, height);
 		
 		// Room 2
+		System.out.println("Please input name of room: ");
+		names[1] = EasyScanner.nextString();
 		System.out.println("Room 2");
 		System.out.println("Please input length:");
 		length = EasyScanner.nextDouble();
@@ -32,6 +36,8 @@ public class Q5_ApartmentRooms2 {
 		apartmentRooms[1] = new Oblong(length, height);
 		
 		// Room 3
+		System.out.println("Please input name of room: ");
+		names[2] = EasyScanner.nextString();
 		System.out.println("Room 3");
 		System.out.println("Please input length:");
 		length = EasyScanner.nextDouble();
@@ -41,10 +47,11 @@ public class Q5_ApartmentRooms2 {
 		
 		// print array
 		for (int i = 0; i < apartmentRooms.length; i++)
-		{
+		{			
 			System.out.println("Room " + (i+1));
-			System.out.println(" Length: " + length);
-			System.out.println(" Height: " + height);
+			System.out.println(names[i]);
+			System.out.println(" Length: " + apartmentRooms[i].getLength());
+			System.out.println(" Height: " + apartmentRooms[i].getHeight());
 			
 		}
 		

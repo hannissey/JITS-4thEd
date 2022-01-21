@@ -5,3 +5,59 @@ Chapter 8 - Implementing Classes
 -------------------------------------------------------------
 
 Learning Outcomes:
+
+	• design classes using the notation of the Unified Modeling Language (UML);
+	• write the Java code for a specified class;
+	• explain the difference between public and private access to attributes and methods;
+	• explain the meaning of the term encapsulation;
+	• explain the use of the static keyword;
+	• pass objects as parameters;
+	• develop their own collection classes in Java;
+	• identify the advantages of object-oriented programming.
+
+-------------------------------------------------------------
+
+8.2 Designing Classes in UML Notation
+
+A class consists of:
+
+- attributes (the data)
+- methods (that can access or modify those attributes
+
+Remember we talked about a feature of OOP was encapsulation (or information-hiding).
+Encapsulation is the technique of making attributes only accessible to methods within that
+class. The only way to access the data within that class is by using the methods that
+interact with it.
+
+When designing a class we need to consider what attributes and method the class will hold.
+We design classes using diagrammatic notation, which is done using UML notation.
+UML stands for Unified Modeling Language.
+
+A UML design for a class consists of three sections:
+
+- class name
+- attributes
+- methods
+
+The UML design for the Oblong class is shown below:
+
+
+			Oblong								} class name
+			_______________________
+
+			-length : double					} attributes
+			-height	: double								
+			_______________________
+
+			+Oblong(double,double)
+			+getLength() : double
+			+getHeight() : double
+			+setLength(double)					} methods
+			+setHeight(double)
+			+calculateArea() : double
+			+calculatePerimeter() : double
+
+
+
+
+- 
