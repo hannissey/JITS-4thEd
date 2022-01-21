@@ -57,7 +57,153 @@ The UML design for the Oblong class is shown below:
 			+calculateArea() : double
 			+calculatePerimeter() : double
 
+Both of the attributes have a minus sign prefix. This indicates that these are private, that
+is, accessible only to methods within the Oblong class. 
+The methods are all prefixed with a +, meaning these are public, and can be accessed by
+other methods of other classes.
 
+We will explain a few of the notations.
 
+-------------------------------------------------------------
 
-- 
+	ATTRIBUTE
+	-length : double
+	
+	a private attribute containing a double data type.
+	As already explained, private is a keyword used to restrict the scope. 
+	Attributes of a class are accessible to ALL methods within that class.
+	Local variables are accessible only to methods in which they are declared.
+	Implemented within class as:
+	
+		private double length;
+		
+-------------------------------------------------------------
+	
+	METHOD: THE CONSTRUCTOR
+	+Oblong(double,double)
+	
+	our public user-defined* constructor, as it has the same name as the class and returns no value
+	Constructors NEVER have a return type - this is why no return type is specified
+	unlike other methods which require void if nothing is returned.
+	If we did use void in a constructor, the compiler would think it was a regular method.
+	It accepts 2 parameters (double, double) to enable it to create a new Oblong object.
+	Implemented as:
+	
+		public Oblong(double lengthIn, double heightIn)
+		{
+			length = lengthIn;
+			height = heightIn;
+		}
+		
+	Used within a program to create an object:
+	
+		Oblong myOblong; // this creates space in memory
+		myOblong = new Oblong(length, height); // this creates the object (instantiation)
+		
+		Oblong myOblong = new Oblong(length, height); // this does both!
+		
+	* 	
+	|	A user-defined constructor is a constructor created by the programmer.
+	|	Classes automatically come with a constructor, called the default constructor.
+	|	It takes no parameters and simply reserves memory for this new object, ie
+	|
+	|	Oblong myOblong = new Oblong();
+	|	
+	|	If we do define our own constructor, this overrides the default constructor.
+	|	We can recreate it by re-defining it as below:
+	|
+	|	public Oblong()
+	|	{
+	|	}
+	|	
+	|	So just like regular methods, constructors can be overloaded too, and we can 
+	|	define several constructors in one class to create objects with additional 
+	|	attributes.
+	|
+	|
+	*
+-------------------------------------------------------------
+	
+	METHOD
+	+getLength() : double
+	A public method that accepts no parameters, but returns a double data type.
+	
+-------------------------------------------------------------
+	
+	METHOD
+	+setHeight(double)
+	A public method that accepts a double data type, but returns no value.
+	
+-------------------------------------------------------------
+	
+As seen in the latter two explanations, it is conventional in UML to begin methods that
+retrieve data from the class with 'get', and those that send data in to the class with 'set'.
+
+The methods that have been developed within the Oblong class deal only with the basic
+functionality of the class, unlike previous programs we have written.
+This is best practice, because in creating a class that will be used by many different
+programs, we should endeavour to restrict our methods to the essential functions that
+define the class, and exclude anything that uses input or output from external programs.
+This ensures our class remains universal.
+
+-------------------------------------------------------------
+
+8.4 The static Keyword
+
+The keyword static, like public and private, is called a modifier.
+A modifier determines how a class, attribute or method is accessed.
+
+An interesting aside as the why the main method is static:
+"Declaring the main method as static in Java ensures that JVM can invoke the entry
+point (main method) without creating any instance of the class."
+
+As seen in program BankAccountTester2, we are able to call a static method either by
+the class name as in:
+
+	BankAccount2.setInterestRate
+	
+Both of these method calls will access the static attribute, modify the value, then
+the change will be seen in all object instances of that class.
+This is because the program creates only one copy of the attribute which is available
+to all objects.
+A static method belongs to the class, not a specific object, and this is why it can be
+invoked on the class itself.
+
+-------------------------------------------------------------
+
+8.5 Initializing Attributes
+
+When using local variables within your main method, you may have noticed compiler errors
+when trying to use variables that have not yet been initialised.
+This is because Java does not automatically assign a value to local variables.
+It does however assign a initial variable to class attributes.
+Below are the initial values of class attributes before they are given a value:
+
+	int = 0;
+	double = 0;
+	boolean = false;
+	object = null;
+	char = '0'; *
+	
+	* technically this is not 0, but the initial Unicode value of 0
+
+Despite this, it is best practice to assign a value to your attributes.
+This is to ensure you get into a routine of doing so, especially outside of Java where
+you can't be sure how your variables are being initialised, or even (in the case of C++)
+with what!
+
+To avoid confusion, it is a good idea to initialise your variables with a value totally
+unlike the intended values (ie, -999 for a menu choice of 1, 2, 3). This will then indicate
+that the variable has not been set and will be useful for debugging purposes. 
+
+-------------------------------------------------------------
+
+8.7 Passing Objects As Parameters
+
+When we pass a variable to a method, it is only a copy of the value that is passed, not
+the value itself, so a method cannot change the original value of the variable.
+
+When we pass an array it is the memory location (or address, or reference) that is passed,
+and so because the method can access the array elements these values can be modified.
+
+What about objects?

@@ -17,6 +17,14 @@ public class Oblong {
 		height = heightIn;
 	}
 	
+	// our second constructor (example of overloading a constructor within a class!)
+	public Oblong(double lengthIn, double heightIn, String nameIn)
+	{
+		length = lengthIn;
+		height = heightIn;
+		name = nameIn;
+	}
+	
 	// this method allows us to read the length attribute
 	public double getLength()
 	{
@@ -43,6 +51,11 @@ public class Oblong {
 	public double calculatePerimeter()
 	{
 		return (length * height) * 2;
+	}
+	
+	public String getName()
+	{
+		return name;
 	}
 	
 	
