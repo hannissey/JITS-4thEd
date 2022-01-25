@@ -2,7 +2,7 @@ package chapter8_ImplementingClasses;
 
 import java.util.ArrayList;
 
-public class Bank 
+public class Q6_Bank 
 {
 
 	ArrayList<BankAccount> list = new ArrayList<>();
@@ -70,20 +70,23 @@ public class Bank
 	}
 	
 	// withdraw money from a specified account
-	public boolean withdrawMoney(String accountNumberIn, double amountIn)
+	public int withdrawMoney(String accountNumberIn, double amountIn)
 	{
 		BankAccount acc = getItem(accountNumberIn);
 		if(acc != null && acc.getBalance() >= amountIn)
 		{
 			acc.withdraw(amountIn);
-			return true;
+			return 1;
 		}
-		else
+		else if(acc == null)
 		{
-			// either the account does not exist
-			// or the account does exist, but there is not enough money to make the withdrawal
-			return false; // indicate failure
+			return 2;
 		}
+		else if(acc.getBalance() < amountIn)
+		{
+			return 3;
+		}
+		return 0;
 	}
 	
 	// remove an account

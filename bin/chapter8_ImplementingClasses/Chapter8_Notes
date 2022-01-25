@@ -247,12 +247,76 @@ We have also been using a couple of ArrayList methods, and here are the most use
 	
 	// return size of ArrayList
 	flowers.size();
+	
+	// get index of item
+	flowers.IndexOf()
 
 
+8.8.1 The Bank Class
+
+Java's collection classes have methods that are universally useful, but not specifically
+tailored to an application. Sometimes we need to create specific methods to perform the
+tasks we need within a class. This is where we create our own collection class that contains
+attributes such as ArrayList. This is done in our collection class Bank.
+
+(see Bank.java for code)
+
+A collection class is an implementation of the aggregation relationship.
+
+An aggregation relationship is when one object consists of other objects.
+It is referred as a part-of relationship.
+Composition is a stronger form of aggregation where the whole is dependent on the part.
+In a composition relationship, the whole cannot work without the part.
+
+So:
+- the association between a car and the passengers is aggregation.
+- the association between a car and its engine is composition.
+
+In UML notation:
+- aggregation is represented by an outline diamond.
+- composition is represented by a solid diamond.
+
+The UML design for the Oblong class is shown below:
 
 
+			Bank										} class name
+			_______________________
+
+			-list : ArrayList<BankAccount>				} attributes								
+			_______________________
+
+			-search(String) : int
+			+getTotal() : int
+			+getItem(String) : BankAccount
+			+addAccount(String, String) : boolean		} methods
+			+depositMoney(String, double) : boolean
+			+withdrawMoney(String, double) : boolean
+			+removeAccount(String) : boolean
 
 
+As we can see from the UML above, the Bank class contains only one attribute, and this is
+a list, which is a collection of BankAccount objects.
+
+There are seven methods, all of which are public except one, the search(string);
+
+This method is a helper method, as it is only used within the class, and not intended for
+use by other classes. It accepts a String which represents the account number then it
+returns the index of the account with that account number. If the account number is not
+found, it returns a value of -999.
+
+Lessons learned from working with the bank class - it is important to pay close attention
+to syntax, otherwise program errors can occur from a single typo.
+Ensure you check all syntax is correct as some will not be picked up by the compiler.
+
+8.9 The Benefits of Object-Oriented Programming
+
+	1. We can keep data secure via encapsulation, meaning we can build secure systems.
+	2. We can re-use the same classes meaning more time-efficient programming.
+	3. We can define and use classes that are incomplete, meaning testing our code is easy.
+	4. We have a more modular system, meaning we can replace and add new classes easily.
+	5. By looking at how objects work in the real world, we can easily abstract this via OOP.
+	6. It improves the entire development process with fast integration and rapid programming.
+	 
 
 
 

@@ -1,0 +1,281 @@
+
+Chapter 8 - Implementing Classes
+8.10 Self-test Questions
+
+1. In question 7 of the programming exercises at the end of Chapter 2 you wrote a
+program that calculated the area and circumference of a circle. Now consider a
+class that we could develop for this purpose; we have called it CircularShape.
+Here is the UML design:
+
+			CircularShape						} class name
+			_______________________
+
+			-radius : double					} attributes								
+			_______________________
+
+			+CircularShape(double)
+			+setRadius(double)
+			+getRadius() : double
+			+calculateArea() : double			} methods
+			+calculateCircumference(): double
+
+
+(a) Distinguish between attributes and methods in this class.
+	
+	The attributes are the data held by a class. In this case, it is a private double variable
+	called radius. 
+	There are 5 public methods, all of which either receive or return double data types.
+	The first, CircularShape, is the constructor by which instantiation occurs.
+
+(b) Explain what it meant by the term encapsulation, how it is recorded in this
+UML diagram and how it is implemented in a Java class.
+
+	Encapsulation is when data is hidden within a class. The symbols + and - in the UML
+	diagram dictate whether an attribute or method is public + or private -.
+	The radius is private because this is only accessed by the methods in the class, and
+	can not be accessed by any other class. The methods are public as these need to called
+	to accomplish the tasks they execute.
+	It is implemented in a Java class using the modifier keyword private or public.
+
+(c) For each method in the CircularShape class, determine
+
+• the number of parameters;
+
+	METHOD									NUMBER OF PARAMETERS
+	+CircularShape(double)					1
+	+setRadius(double)						1
+	+getRadius() : double					0
+	+calculateArea() : double				0
+	+calculateCircumference(): double		0
+	
+
+• the type of any parameters;
+
+	METHOD									PARAMETER DATA TYPE
+	+CircularShape(double)					double
+	+setRadius(double)						double
+	+getRadius() : double					N/A
+	+calculateArea() : double			    N/A
+	+calculateCircumference(): double		N/A
+
+• the return type;
+
+	METHOD									RETURN DATA TYPE
+	+CircularShape(double)					N/A
+	+setRadius(double)						N/A
+	+getRadius() : double					double
+	+calculateArea() : double			    double
+	+calculateCircumference(): double		double
+
+• the equivalent method header in Java.
+
+	METHOD									JAVA METHOD HEADER
+	+CircularShape(double)					public CircularShape(input);
+	+setRadius(double)						public void setRadius(input);
+	+getRadius() : double					public double getRadius();
+	+calculateArea() : double			    public double calculateArea();
+	+calculateCircumference(): double		public double calculateCircumference();
+
+(d) Add an additional method into this UML diagram, calculateDiameter, which calculates and
+returns the diameter of the circle.
+
+			CircularShape						} class name
+			_______________________
+
+			-radius : double					} attributes								
+			_______________________
+
+			+CircularShape(double)
+			+setRadius(double)
+			+getRadius() : double
+			+calculateArea() : double			} methods
+			+calculateCircumference(): double
+			+calculateDiameter(): double
+
+
+(e) Write the Java code for the calculateDiameter method.
+
+	public double calculateDiameter()
+	{
+		diameterOut = radius * 2;
+		return diameterOut;
+	}
+	
+2. The UML diagram below represents the design for a Student class.
+
+		Student
+		_________________________
+		 
+		-studentNumber : String 
+		-studentName : String 
+		-markForMaths : int 
+		-markForEnglish : int 
+		-markForScience : int 
+		-fee: double
+		_________________________
+		
+		+Student(String, String) 
+		+getNumber() : String 
+		+getName() : String 
+		+enterMarks(int, int, int) 
+		+getMathsMark() : int 
+		+getEnglishMark() : int 
+		+getScienceMark() : int 
+		+calculateAverageMark() : double 
+		+getFee(): double 
+		+setFee(double)
+		
+You can see that students have a name, a number, some marks for subjects they
+are studying and the fee. Methods are then provided to process this data.
+
+(a) What is indicated by the fact that certain attributes and methods have been
+underlined?
+
+	These methods are static, meaning that their values affect every object in the class.
+	For example, if the fee is amended to a higher value, this means all students fees will
+	go up.
+	
+(b) Write the Java code for the parts of the class that have been underlined.
+
+	-fee: double
+	
+		private static double fee;
+
+
+	+getFee(): double
+	
+		public static double getFee()
+		{
+			return fee;
+		}	
+	
+	+setFee(double)
+	
+		public static void setFee(double feeIn)
+		{
+			fee = feeIn;
+		}
+	
+3. Consider the following class:
+
+public class SomeClass 
+{
+ 	private int x; 
+ 	
+ 	public SomeClass( ) 
+ 	{ 
+ 		x = 10; 
+ 	} 
+ 
+ 	public SomeClass(int xIn) 
+ 	{ 
+ 		x = xIn; 
+ 	} 
+ 
+ 	public void setX(int xIn) 
+ 	{ 
+ 		x = xIn; 
+ 	} 
+ 
+ 	public int getX() 
+ 	{ 
+ 		return x; 
+ 	} 
+}
+
+(a) What would be the output from the following program?
+
+public class Test1 
+{
+ 	public static void main(String[] args) 
+ 	{ 
+ 		SomeClass myObject = new SomeClass(); 
+ 		System.out.println(myObject.getX()); 
+ 	} 
+}
+
+	The output would be: 10
+
+(b) What would be the output from the following program?
+
+public class Test2 
+{
+ 	public static void main(String[] args) 
+ 	{ 
+ 		SomeClass myObject = new SomeClass(5); 
+	 	System.out.println(myObject.getX()); 
+ 	} 
+}	
+	
+	The output would be: 5
+	
+(c) Explain why the following program would not compile.
+
+public class Test3 
+{
+ 	public static void main(String[] args) 
+ 	{ 
+ 		SomeClass myObject = new SomeClass(5, 8); 
+ 		System.out.println(myObject.getX()); 
+ 	} 
+}
+
+	This would not compile as there is no method with matching parameters.
+
+(d) What would be the output from the following program?
+
+public class Test4 
+{
+ 	public static void main(String[] args) 
+ 	{ 
+ 		int y = 20; 
+ 		SomeClass myObject = new SomeClass(5); 
+ 		System.out.println(myObject.getX()); 
+ 		test(y, myObject); 
+ 		System.out.println(y); 
+ 		System.out.println(myObject.getX()); 
+ 	} 
+ 
+ 	static void test(int z, SomeClass classIn) 
+ 	{ 
+ 		z = 50; 
+ 		classIn.setX(100);
+ 	}
+ }
+ 
+ 	The output would be: 
+ 		5
+ 		20
+ 		100
+
+4. Consider the Bank program from Sect. 8.8.1.
+
+(a) Adapt the withdrawMoney method so that it distinguishes the two reasons
+why the method might fail—namely that there is no account with the given
+account number, or there is not enough money in the account to make a
+withdrawal.
+
+A boolean method would no longer suffice as there is more then one possibility.
+One solution would be for the method to return an integer - perhaps 1
+for success, -1 to indicate that the method failed because there was no such
+account number, and -2 to indicate that it failed because there were insufficient
+funds.
+
+(b) Adapt the BankApplication program from Sect. 8.8.2 so that option 4 now
+uses the new version of withdrawMoney.
+
+	Amended boolean return data type to integer and assigned a number to each
+	response, then integrated switch statement in BankApplication to process
+	response number.
+
+5. Identify some of the reasons why the object-oriented approach has become the
+norm for programming.
+
+	OOP is more efficient, easier and more manageable than procedural programming
+	languages. Updating and testing parts of the system is simple due to its modular
+	implementation. 
+	Classes can be re-used over and over again without the need for new classes to
+	be created. 
+	Encapsulation, which means data is hidden inside classes and can only be accessed
+	by the defined methods, means the systems build using OOP are much more secure.
+	
