@@ -17,15 +17,72 @@ public class Q8_TimeTable {
 		times = new Q8_Booking[dayIn][periodIn];
 	}
 	
+	// helper methods
+	// return max number of rows
+	private int getMaxDays() 
+	{
+		int maxDays = -999;
+	
+		for (int row = 0; row < times.length; row++)
+		{
+			maxDays = times.length;
+		}		
+		return maxDays;
+	}
+	
+	// return max number of columns
+	private int getMaxPeriods()
+	{
+		int maxPeriods = -999;
+	
+		for (int row = 0; row < times.length; row++)
+		{
+			for (int col = 0; col < times[row].length; col++)
+			{
+				maxPeriods = times[row].length;
+			}
+		}
+		return maxPeriods;
+	}
+	
+	// test slotExists
+	public void viewTimetable()
+	{
+		int maxDays = -999;
+		int maxPeriods = -999;
+	
+		for (int row = 0; row < times.length; row++)
+		{
+			maxDays = times.length;
+			System.out.println("\nDay " + (row+1));
+			for (int col = 0; col < times[row].length; col++)
+			{
+				maxPeriods = times[row].length;
+				System.out.print(" Period " + (col+1) + " |");
+			}
+		}
+		
+		System.out.println();
+
+	}
+	
+	
+	
 	// make booking
 	// amend to return boolean, and take Booking object
 	public boolean makeBooking(int dayIn, int periodIn, Q8_Booking bookingIn)
 	{
-		if (times[dayIn][periodIn] == null)
+		int maxDays = getMaxDays();
+		int maxPeriods = getMaxPeriods();
+		
+		if(dayIn <= maxDays && periodIn <= maxPeriods && times[dayIn][periodIn] == null)
 		{
 			times[dayIn][periodIn] = bookingIn;
+			System.out.println("Booking successful.");
 			return true;
 		}
+		System.out.println("Must not exceed " + maxDays + " days.");
+		System.out.println("Must not exceed " + maxPeriods + " periods.");	
 		return false;
 
 	}

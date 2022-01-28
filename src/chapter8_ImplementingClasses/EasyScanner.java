@@ -31,4 +31,18 @@ public class EasyScanner {
 		char c = keyboard.next().charAt(0);
 		return c;
 	}
+	
+	public static byte nextByte()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		byte b = keyboard.nextByte();
+		return b;
+	}
+	
+	public static long nextLong()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		long l = keyboard.nextLong();
+		return l;
+	}
 }
