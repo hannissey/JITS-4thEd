@@ -1,0 +1,20 @@
+
+
+Chapter 9 - Inheritance
+
+-------------------------------------------------------------
+
+Learning Outcomes:
+
+	• explain the term inheritance;
+	• design inheritance structures using UML notation;
+	• implement inheritance relationships in Java;
+	• distinguish between method overriding and method overloading;
+	• explain the term type cast and implement this in Java;
+	• explain the use of the abstract modifier when applied to classes and
+	methods;
+	• explain the use of the final modifier, when applied to classes and methods;
+	• describe the way in which all Java classes are derived from the Object class.
+
+-------------------------------------------------------------
+

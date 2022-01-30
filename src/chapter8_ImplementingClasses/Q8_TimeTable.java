@@ -45,7 +45,7 @@ public class Q8_TimeTable {
 		return maxPeriods;
 	}
 	
-	// test slotExists
+	// view Timetable
 	public void viewTimetable()
 	{
 		int maxDays = -999;
@@ -66,7 +66,7 @@ public class Q8_TimeTable {
 
 	}
 	
-	
+
 	
 	// make booking
 	// amend to return boolean, and take Booking object
@@ -74,6 +74,9 @@ public class Q8_TimeTable {
 	{
 		int maxDays = getMaxDays();
 		int maxPeriods = getMaxPeriods();
+		
+		
+		
 		
 		if(dayIn <= maxDays && periodIn <= maxPeriods && times[dayIn][periodIn] == null)
 		{

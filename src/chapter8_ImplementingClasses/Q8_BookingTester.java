@@ -172,7 +172,10 @@ public class Q8_BookingTester {
 		
 		// view visual timetable
 		timetableIn.viewTimetable();
+		
+		
 	}
+
 	
 	// initial pre-booking methods to populate timetable quickly
 	public static void bookingRequest(Q8_TimeTable timetableIn, int dayIn, int periodIn, Q8_Booking bookingIn)
