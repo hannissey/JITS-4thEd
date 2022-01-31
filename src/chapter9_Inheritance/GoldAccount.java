@@ -1,20 +1,18 @@
 package chapter9_Inheritance;
 
-import java.util.Scanner;
-
 public class GoldAccount extends BankAccount {
 
 	private double overdraftLimit;
 	
-	public GoldAccount(String accountNumberIn, String accountNameIn, double overdraftLimitIn)
+	public GoldAccount(String numberIn, String nameIn, double limitIn)
 	{
-		super(accountNumberIn, accountNameIn);
-		overdraftLimit = overdraftLimitIn;
+		super(numberIn, nameIn);
+		overdraftLimit = limitIn;
 	}
 	
-	public void setLimit(double overdraftLimitIn)
+	public void setLimit(double limitIn)
 	{
-		overdraftLimit = overdraftLimitIn; 
+		overdraftLimit = limitIn; 
 	}
 	
 	public double getLimit()
@@ -22,14 +20,18 @@ public class GoldAccount extends BankAccount {
 		return overdraftLimit;
 	}
 	
-	public boolean withdraw(double amountOut)
+	@Override
+	public boolean withdraw(double amountIn)
 	{
-		if(balance >= amountOut)
+		if(amountIn > balance + overdraftLimit)
 		{
-			balance = balance - amountOut;
-			return true;
+			return false; // no withdrawal was made - insufficient funds
 		}
-		return false;		
+		else
+		{
+			balance = balance - amountIn; // balance is protected, so we have direct access to it
+			return true; // money was withdrawn successfully
+		}
 	}
 	
 	

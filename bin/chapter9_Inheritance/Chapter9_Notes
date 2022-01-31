@@ -232,8 +232,137 @@ the decimal of a double, but for our purpose here it does not matter.
 
 9.5 Method Overriding
 
+Method overriding is another example of polymorphism in OOP.
+
+Previously, you have seen that polymorphism can be achieved with method overloading, where two methods
+can have the same name but are distinguished by the compiler via the parameters.
+
+Method Overriding can be used in subclasses to override methods contained in the superclass.
+
+To demonstrate, we will use our BankAccount class and create a subclass called GoldAccount.
+GoldAccount gives an additional feature: that of an overdraft. This means that GoldAccount holders are
+able to withdraw more money than their account holds.
+
+This wouldn't work if we used the withdraw() method of the BankAccount, as the condition is that a 
+withdraw attempt will fail should the withdrawal amount exceed the balance.
+
+So we need to create a new method solely for GoldAccount holders to enable them to take advantage of
+their overdraft facility.
+
+Below is the UML notation for both the BankAccount superclass, and the GoldAccount subclass.
+You will note the single change we have made is making the balance attribute protected rather than private.
+
+
+			BankAccount							
+			_______________________
+
+			-accountNumber : String
+			-accountName : String
+			#balance : double							
+			_______________________
+
+			+BankAccount(String,String)
+			+getAccountNumber() : String
+			+getAccountName() : String
+			+getBalance() : double
+			+deposit(double)
+			+withdraw(double) : boolean
+			
+					/\
+				   /  \
+				     |
+					 |
+			GoldAccount						
+			_______________________
+
+			-overdraftLimit : double								
+			_______________________
+
+			+GoldAccount(String, String, double)
+			+setLimit(double)
+			+getLimit() : double
+			+withdraw(double) : boolean
+
+Below is our new withdraw method in the GoldAccount class:
+
+	@Override
+	public boolean withdraw(double amountIn)
+	{
+		if(amountIn > balance + overdraftLimit)
+		{
+			return false; // no withdrawal was made - insufficient funds
+		}
+		else
+		{
+			balance = balance - amountIn; // balance is protected, so we have direct access to it
+			return true; // money was withdrawn successfully
+		}
+	}
+	
+Compare this to the original BankAccount withdraw method:
+
+	public boolean withdraw(double amountIn)
+	{
+		if(amountIn > balance)
+		{
+			return false;
+		}
+		else 
+		{
+			balance = balance - amountIn;
+			return true;
+		}
+	}
+	
+There are two changes, the first is that the method is preceded by the @Override keyword.
+The second is the additional of + overdraftLimit to the condition in the if statement. This then
+increases the amount the GoldAccount holder is able to withdraw.
+
+The @Override keyword is a Java annotation.
+It is not compulsory to include this when overriding a method, but it is good practice.
+An annotation always begins with an @ symbol and an uppercase letter.
+The @Override keyword tells the compiler we are overriding a method with the same name, and it then knows
+to check the method is being used correctly (eg, you get an error message if you call a method and do
+not use the right parameters).
+If you did not use the @Override annotation, the compiler thinks you have written a new method and
+ignores the original.
+
+Just as the compiler knows which overloaded method to use by way of the parameter list, the compiler
+knows which overridden method to use by the object they are associated, ie:
+
+bankAcc.withdraw(1250);
+goldAcc.withdraw(1250);
+
+The compiler knows to use the Bank Account method with the first method call, because bankAcc is a
+Bank Account object.
+goldAcc is a GoldAccount object, so the Gold Account withdraw method is called.
+
+See the OverridingDemo program for a demonstration.
 
 
 
+-------------------------------------------------------------
+
+9.6 Abstract Classes
+
+-------------------------------------------------------------
+
+9.7 Abstract Methods
+
+-------------------------------------------------------------
+
+9.8 The final Modifier
+
+-------------------------------------------------------------
+
+9.9 The Object Class
+
+-------------------------------------------------------------
+
+9.10 The toString Method
+
+-------------------------------------------------------------
+
+9.11 Wrapper Classes And Autoboxing
   
 
