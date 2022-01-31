@@ -18,3 +18,222 @@ Learning Outcomes:
 
 -------------------------------------------------------------
 
+9.1 Introduction
+
+We spoke about some of the benefits of using OOP in the previous chapter, one of which 
+was the opportunity to reuse classes. We will be building on this in this chapter, which 
+is inheritance. Inheritance enables us to extend classes, by using one that already exists
+and adding to it without modifying or affecting the original class.
+
+So inheritance is a way of extending classes by adding attributes and methods using an additional class.
+
+-------------------------------------------------------------
+
+9.2 Defining Inheritance
+
+Say you have a class, Employee, within a program. You wish to use the class to establish Part Time
+Employees on the system, however the original class does not have the attributes and methods you need.
+It does however contain the basics that you will be using to create your part time employee.
+
+You need to extend the Employee class to another class you will build, PartTimeEmployee which will extend
+the Employee class by way of inheritance.
+
+In UML notation, inheritance is depicted by a triangle.
+(To visualise, imagine each class is in a box, and the symbol /\ is a triangle!)
+
+
+			Employee							
+			_______________________
+
+			-number : String
+			-name	: String								
+			_______________________
+
+			+Employee(String, String)
+			+setName(String)
+			+getNumber() : String
+			+getName() : String
+			
+					/\
+				   /  \
+				     |
+					 |
+			PartTimeEmployee							
+			_______________________
+
+			-hourPay : double								
+			_______________________
+
+			+PartTimeEmployee(String, String, double)
+			+setHourlyPay(double)
+			+getHourlyPay() : double
+			+calculateWeeklyPay(int) : double				 
+
+We don't need to rewrite the Employee methods and attributes in our new
+PartTimeEmployee class, as these will be extended from the Employee class
+to our new one.
+
+An inheritance relationship is a hierarchical relationship:
+	- The Employee class is the superclass (or base class).
+	- The PartTimeEmployee class is the subclass (or derived class).
+	- another way to think of it is as a 'is-a-kind-of' relationship, ie
+	  a PartTimeEmployee is a kind of Employee.
+	  
+-------------------------------------------------------------
+
+9.3 Implementing Inheritance in Java
+
+To extend our Employee class, we need to tell Java that PartTimeEmployee is a
+subclass of Employee. We do this using the keyword extends.
+This is declared within the class header, as below:
+
+	public class PartTimeEmployee extends Employee
+	
+This means PartTimeEmployee inherits all the attributes and methods used within
+the Employee class.
+Therefore any PartTimeEmployee object will have the same attributes as an
+object of the Employee class.
+
+What about private attributes and methods?
+
+Because the attributes of Employee are private, this means that, like any
+other class, the subclass PartTimeEmployee cannot directly access them.
+There are a few solutions:
+
+1. Declare original attributes as public.
+
+	We don't want to do this as this removes the encapsulation aspect.
+
+2. Use the keyword protected instead of private.
+
+	Declaring attributes and methods as protected means they are accessible
+	to subclasses of the superclass. 
+	However, this means the original class would have to be amended, and again
+	it goes against encapsulation as protected attributes can be accessed by
+	other classes within the same package, and not just the subclass.
+	This is an acceptable approach however, especially when you plan to have
+	subclasses that use the attributes within the superclass.
+	*** In a UML diagram, a protected attribute is marked with a #
+	
+3. Clever use of methods to access the private attributes.
+
+	We will need to plan appropriate get- and set- methods to help us access the data. 
+
+The attributes in our subclass are declared as normal - these will be used in
+addition to the attributes in the superclass.
+
+The constructor is interesting. 
+
+Look at the constructor within the Employee class:
+
+	public Employee(String numberIn, String nameIn)
+	{
+		number = numberIn;
+		name = nameIn;
+	}
+	
+Now look at the constructor within the PartTimeEmployee class:
+
+	public PartTimeEmployee(String numberIn, String nameIn, double hourlyPayIn)
+	{
+		super(numberIn, nameIn); // call the constructor of the superclass
+		hourlyPay = hourlyPayIn;
+	}
+	
+The PartTimeEmployee constructor has 3 formal parameters. The first two will
+be assigned to the Employee class attributes, number and name, and the last will
+be assigned to the PartTimeEmployee class hourlyPay.
+
+However - we need to assign the name and number via the superclass, as these
+attributes are not contained within the subclass.
+This is done using the constructor super() as below:
+
+	super(numberIn, nameIn);
+	
+This constructor has to be the first declaration, otherwise the code will not compile.
+
+-------------------------------------------------------------
+
+9.4 Extending the Oblong Class
+
+We have created a program called ExtendedOblongTester which builds
+an oblong using the attributes from the superclass, Oblong. Then
+within the subclass ExtendedOblong we have a new attribute, symbol,
+and a method to draw an Oblong using that symbol.
+
+So we are building an object with the Oblong class via the ExtendedOblong
+class, then adding a new attribute and methods.
+Below is the UML notation for both classes:
+
+			Oblong							
+			_______________________
+
+			-length : double
+			-height : double								
+			_______________________
+
+			+Oblong(double, double)
+			+setLength(double)
+			+setHeight(double)
+			+getLength() : double
+			+getHeight() : double
+			+calculateArea() : double
+			+calculatePerimeter() : double
+			
+					/\
+				   /  \
+				     |
+					 |
+			ExtendedOblong							
+			_______________________
+
+			-symbol : char								
+			_______________________
+
+			+ExtendedOblong(double, double, char)
+			+setSymbol(char)
+			+draw() : String
+
+A new tip we learn here is that Java has escape characters:
+
+	\n creates a new line
+	\t inserts a tab
+	
+These are useful for making our code readable.
+
+Another technique we are using in the ExtendedOblong class is type casting.
+If you look at the draw method within ExtendedOblong, you will see
+two integer variables have been declared.
+However, why would we need integer variables if all the data handled
+by Oblong are double data types?
+
+We need integer data values because the draw method creates rows and
+columns. We cannot have a table with 2.1 rows or 5.4 columns. This
+is where type casting is useful - it forces an item to change from
+one data type to another.
+
+The syntax below:
+
+	l = (int) getLength();
+	
+is an example of type casting. Here we are invoking the method
+getLength(), which returns a double, but turning it into an int
+when assigning it to the variable l.
+
+When using type casting, you need to declare the new data type
+before the method call, as below:
+
+	variable = (dataType) methodName();
+	
+There will be some form of data loss as an integer cannot store
+the decimal of a double, but for our purpose here it does not matter.
+
+-------------------------------------------------------------
+
+9.5 Method Overriding
+
+
+
+
+  
+
