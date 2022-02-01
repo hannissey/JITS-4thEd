@@ -1,4 +1,140 @@
 
 Chapter 9 - Inheritance
-9 Self-test Questions
+9.12 Self-test Questions
+
+1. Below is a UML diagram for an inheritance relationship between two classes—
+Vehicle and SecondHandVehicle.
+
+(a) By referring to the diagram, explain the meaning of the term inheritance.
+	
+	Inheritance is when we create a class that extends another class. 
+	In the diagram Vehicle is the super class that is inherited by the subclass SecondHandVehicle.
+	The subclass inherits all the attributes and methods of the superclass, and adds additional
+	attirbutes and methods that are pertinent to the subclass.
+
+(b) What do you think might be the function of each of the constructors?
+
+	The Vehicle class constructor creates a Vehicle Object that takes in the parameters 
+	String regNo, String make, int yearOfManufacture and double value.
+
+	The SecondHandVehicle class constructor does the same as the above but has an additional
+	parameter, the int numberOfOwners.
+
+(c) What do you think might be the reason for the fact that in the Vehicle
+class there is a set-method for the value attribute, but not for the other
+three?
+
+	There is a set method for the value of the vehicle because this may change during the Object's 
+	lifetime. The other 3 attributes, Registration, Make and Year of Manufacture will not need to be
+	changed.
+
+(d) Write the header for the SecondHandVehicle class.
+
+	public class SecondHandVehicle extends Vehicle
+	{
+	}
+
+2. 
+(a) Consider the following classes and arrange them into an inheritance hierarchy using UML notation:
+
+
+					Shape							
+			_______________________
+
+			
+					/\
+				   /  \
+				     |
+					 |
+					 
+				   Circle						
+			_______________________
+
+
+
+	
+
+(b) Write the top line of the class declaration for each of these classes when
+implementing them in Java.
+(c) Explain what effect the abstract modifier has on a class and identify
+which, if any, of the classes above could be considered as abstract classes?
+3. Consider once again an application to record the reading of a pressure sensor as
+discussed in programming exercise 4 of the previous chapter. Now assume a
+SafeSensor class is developed that ensures that the pressure is never set
+above some maximum value. A SafeSensor is a kind of Sensor. The UML
+design is given below:
+Sensor
+-pressure : double 
++Sensor () 
++Sensor (double) 
++setPressure(double): boolean 
++getPressure( ): double 
+SafeSensor
+-max: double
++SafeSensor (double) 
++SafeSensor (double, double) 
++setPressure(double): boolean 
++getMax( ): double
+The SafeSensor class has two constructors. The first sets the maximum safe
+value to the given parameter and the actual value of the sensor reading to 10.
+The second constructor accepts two parameters, the first is used to set the
+maximum safe value and the second is used to set the initial value for the
+reading of the sensor.
+The setPressure method is redefined so that only safe values (values no
+greater than the safe maximum value and no less than zero) are set.
+(a) In the example above, distinguish between method overriding and method
+overloading.
+(b) Below is one attempt at the Java code for the first SafeSensor constructor. Identify why it will not compile.
+9.12 Self-test Questions 261
+(c) Here is another attempt at the Java code for the first SafeSensor constructor. Identify why it will not compile.
+(d) Write the correct code for the first SafeSensor constructor.
+4. By referring to the BankAccount class of Sect. 9.5, distinguish between
+private, public and protected access.
+5. How are all classes in Java related to the Object class?
+6. Explain, with an example, the term type cast.
+7. (a) Consider the following definition of a class called Robot:
+// THIS WILL NOT COMPILE!!
+public SafeSensor(double maxIn)
+{ 
+max = maxIn;
+pressure = 10;
+} 
+// THIS WILL NOT COMPILE!!
+public SafeSensor(double maxIn)
+{ 
+max = maxIn;
+super();
+} 
+public abstract class Robot
+{ 
+private String id;
+private int securityLevel;
+private int warningLevel = 0;
+public Robot(String IdIn, int levelIn)
+{ 
+id = IdIn;
+securityLevel = levelIn;
+} 
+public String getId()
+{ 
+return id;
+} 
+public int getSecurityLevel()
+{ 
+return securityLevel;
+} 
+public abstract void calculateWarningLevel();
+} 
+262 9 Inheritance
+(i) The following line of code is used in a program that has access to the
+Robot class:
+Explain why this line of code would cause a compiler error.
+(ii) Consider the following class:
+Explain why any attempt to compile this class would result in a compiler error.
+8. What is the effect of the final modifier, when applied to both classes and
+methods?
+9. Look back at the EmployeeTester class from Sect. 9.6. What do you think
+would happen if you replaced this line of testMethod:
+with the following line?
+Give a reason for your answer
 	
