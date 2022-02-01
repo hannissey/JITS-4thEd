@@ -452,12 +452,102 @@ When applied to a method, the method cannot be overridden.
 
 9.9 The Object Class
 
+In Java, every single class is a subclass of the Object class - a super superclass!
+Therefore, every object in Java is-a-kind-of Object.
+
 -------------------------------------------------------------
 
 9.10 The toString Method
 
+The toString method is a great way of printing out all the details of your class without having to
+create and call methods to do so. 
+
+Remember when we tried to 'print out' an object, as below:
+
+	System.out.println(acc);
+	
+It would simply display the memory address rather than the actual values.
+
+Using the toString method turns the variables within the class into their actual values, meaning
+when you use them within the toString method, then call them, they will display on the screen.
+
+So instead of coding the below using specific methods:
+
+	// display account details
+	System.out.print("*** Account Details ***"+ "\n\n" +				
+			"Account number: " + account1.getAccountNumber() + "\n" +
+			"Account name: " + account1.getAccountName() + "\n" +
+			"Interest Rate: " + BankAccount2.getInterestRate() + "%\n" + 
+			"Current Balance: £" + account1.getBalance() + "\n\n"
+		);
+
+We can instead simply create a method in the class which, when called, will print the info:
+
+	@Override
+	public String toString()
+	{
+		return "Name: " + accountName + '\n' 
+				+ "Account number: " + accountNumber + '\n'
+				+ "Balance: " + balance;
+	}
+	
+The @Override is required because, as an object, BankAccount is inherited from the Java super superclass
+Object, which already has a method toString().
+
 -------------------------------------------------------------
 
 9.11 Wrapper Classes And Autoboxing
-  
 
+We already know that collection classes <ArrayList> for example, cannot hold primitive data types.
+There is a way around this however by using wrapper classes.
+
+A wrapper class "wrap" a class around the type.
+This is possible because Java has a class that corresponds to every primitive type, for example:
+
+	data type	class
+	-------------------------
+		  int = Integer
+		 char = Character
+		float = Float
+	   double = Double
+	   
+An object of the Integer class holds an integer value, an object of the Character class holds a
+char, and so on. This enables us to store primitive data types as Objects, meaning we can store
+them in an ArrayList:
+
+	ArrayList<Integer> myList = new ArrayList<>();
+	
+Compare this to an ArrayList declaration from a previous exercise:
+
+	ArrayList<Oblong> apartmentRooms = new ArrayList<>(); 
+	
+You can see that both ArrayLists both contain Objects, Integer and Oblong, because we are using the
+Integer class to store integers as objects by 'wrapping' them around the data type.
+
+Using the ArrayList methods is just the same, as we can see:
+
+	myList.add(new Integer(37));
+	
+Again compare this to a previous example:
+
+	apartmentRoomsIn.add(new Oblong(length, height));
+	
+You can see the parameter accepted by the Integer class method is the actual integer value.
+
+We can make using ArrayList methods with wrapper classes even easier by using Java's technique of
+autoboxing. This enables us to be able to add a new integer to our ArrayList by way of this syntax:
+
+	myList.add(37);
+	
+We do not have to declare a new Integer object. This is because autoboxing automatically converts
+the input to the desired Object, meaning our 37 integer is turned into an Integer object without us
+having to declare this.
+
+The reverse of this is unboxing, which simply converts the wrapper class back to the primitive data type:
+
+	int x = myList.get(0);
+	
+As you can see, we are assigning an Object to an integer variable. Thanks to unboxing, Java knows to
+automatically convert the object to an integer.
+
+Wrapper classes, autoboxing and unboxing apply to all primitive data types.
