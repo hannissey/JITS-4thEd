@@ -38,56 +38,118 @@ three?
 (a) Consider the following classes and arrange them into an inheritance hierarchy using UML notation:
 
 
-					Shape							
-			_______________________
+					   Shape							
+			  _______________________
 
 			
-					/\
-				   /  \
-				     |
-					 |
-					 
-				   Circle						
-			_______________________
-
-
-
+						/\
+					   /  \
+	         ------------------------
+			 |						|
+			 |						|
+						 
+		   Circle				  Square				
+	_________________        __________________
 	
+			/\
+		   /  \
+		   ----
+	         |
+	         |
+	         
+	   FilledCircle
+	__________________
+
 
 (b) Write the top line of the class declaration for each of these classes when
 implementing them in Java.
+
+	Shape
+	
+		public abstract class Shape
+		
+	Square
+	
+		public class Square extends Shape
+		
+	Circle
+	
+		public class Circle extends Shape
+		
+	FilledCircle
+	
+		public class FilledCircle extends Circle		
+	 
+
 (c) Explain what effect the abstract modifier has on a class and identify
 which, if any, of the classes above could be considered as abstract classes?
-3. Consider once again an application to record the reading of a pressure sensor as
-discussed in programming exercise 4 of the previous chapter. Now assume a
-SafeSensor class is developed that ensures that the pressure is never set
-above some maximum value. A SafeSensor is a kind of Sensor. The UML
-design is given below:
-Sensor
--pressure : double 
-+Sensor () 
-+Sensor (double) 
-+setPressure(double): boolean 
-+getPressure( ): double 
-SafeSensor
--max: double
-+SafeSensor (double) 
-+SafeSensor (double, double) 
-+setPressure(double): boolean 
-+getMax( ): double
+
+	The abstract modifier essentially restricts a class and makes it impossible to create an object
+	from this class.
+	Shape can be considered an abstract class, because it is unlikely that when creating a shape, we
+	would create a circle, square, triangle etc, which are shapes, but of a specific type.
+
+
+3. Consider once again an application to record the reading of a pressure sensor as discussed in
+programming exercise 4 of the previous chapter. 
+Now assume a SafeSensor class is developed that ensures that the pressure is never set above some
+maximum value. A SafeSensor is-a-kind-of Sensor. The UML design is given below:
+
+		Sensor
+		_____________________
+		
+		-pressure : double 
+		
+		_____________________
+		
+		+Sensor () 
+		+Sensor (double) 
+		+setPressure(double): boolean 
+		+getPressure( ): double 
+		
+				/\
+			   /  \
+			   ----
+		         |
+		         |
+
+
+		SafeSensor
+		_____________________
+		
+		-max: double
+		_____________________
+		
+		+SafeSensor (double) 
+		+SafeSensor (double, double) 
+		+setPressure(double): boolean 
+		+getMax( ): double
+		
+
 The SafeSensor class has two constructors. The first sets the maximum safe
 value to the given parameter and the actual value of the sensor reading to 10.
+
 The second constructor accepts two parameters, the first is used to set the
 maximum safe value and the second is used to set the initial value for the
 reading of the sensor.
+
 The setPressure method is redefined so that only safe values (values no
 greater than the safe maximum value and no less than zero) are set.
+
 (a) In the example above, distinguish between method overriding and method
 overloading.
-(b) Below is one attempt at the Java code for the first SafeSensor constructor. Identify why it will not compile.
-9.12 Self-test Questions 261
-(c) Here is another attempt at the Java code for the first SafeSensor constructor. Identify why it will not compile.
+
+
+
+(b) Below is one attempt at the Java code for the first SafeSensor constructor.
+Identify why it will not compile.
+
+(c) Here is another attempt at the Java code for the first SafeSensor constructor.
+Identify why it will not compile.
+
 (d) Write the correct code for the first SafeSensor constructor.
+
+
 4. By referring to the BankAccount class of Sect. 9.5, distinguish between
 private, public and protected access.
 5. How are all classes in Java related to the Object class?
