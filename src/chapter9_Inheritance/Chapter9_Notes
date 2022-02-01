@@ -330,8 +330,8 @@ ignores the original.
 Just as the compiler knows which overloaded method to use by way of the parameter list, the compiler
 knows which overridden method to use by the object they are associated, ie:
 
-bankAcc.withdraw(1250);
-goldAcc.withdraw(1250);
+	bankAcc.withdraw(1250);
+	goldAcc.withdraw(1250);
 
 The compiler knows to use the Bank Account method with the first method call, because bankAcc is a
 Bank Account object.
@@ -339,11 +339,27 @@ goldAcc is a GoldAccount object, so the Gold Account withdraw method is called.
 
 See the OverridingDemo program for a demonstration.
 
-
-
 -------------------------------------------------------------
 
 9.6 Abstract Classes
+
+Abstract classes are classes that are never used to create objects.
+We have created our Employee super class, which creates an Employee with name and number, and has
+methods to process this data. 
+We have also created our subclasses PartTimeEmployee and FullTimeEmployee.
+We will never need to use Employee to create an Employee object, as PartTimeEmployee and FullTimeEmployee
+does that for us.
+That means we can declare Employee as an abstract class by using the syntax below:
+
+	public abstract class Employee
+	
+We are now unable to create an Employee object, but can create a FullTimeEmployee or PartTimeEmployee
+object using the Employee class attributes and methods.
+
+We may have a superclass that has hundreds of subclasses, but we know that whenever we create an object
+using one of the subclass, it is still an object of the superclass.
+This is why we can call a FullTimeEmployee or PartTimeEmployee object by using the Employee class name.
+This is because both of the subclasses are still Employee objects.
 
 -------------------------------------------------------------
 
