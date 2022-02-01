@@ -25,4 +25,10 @@ public class PartTimeEmployee extends Employee // this class is a subclass of Em
 	{
 		return noOfHoursIn * hourlyPay;
 	}
+	
+	@Override
+	public String getStatus()
+	{
+		return "Part-Time";
+	}
 }

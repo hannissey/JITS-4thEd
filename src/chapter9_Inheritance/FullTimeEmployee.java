@@ -24,4 +24,10 @@ public class FullTimeEmployee extends Employee {
 	{
 		return annualSalary / 12;
 	}
+	
+	@Override
+	public String getStatus()
+	{
+		return "Full-Time";
+	}
 }

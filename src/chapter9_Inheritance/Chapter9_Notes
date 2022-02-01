@@ -346,7 +346,37 @@ See the OverridingDemo program for a demonstration.
 Abstract classes are classes that are never used to create objects.
 We have created our Employee super class, which creates an Employee with name and number, and has
 methods to process this data. 
-We have also created our subclasses PartTimeEmployee and FullTimeEmployee.
+We have also created our subclasses PartTimeEmployee and FullTimeEmployee:
+
+									Employee							
+									_______________________
+						
+									-number : String
+									-name	: String								
+									_______________________
+						
+									+Employee(String, String)
+									+setName(String)
+									+getNumber() : String
+									+getName() : String
+									
+											/\
+										   /  \
+					 --------------------------------------------
+				     |											|
+					 |											|
+			FullTime Employee							PartTimeEmployee							
+			_______________________                     _______________________
+
+			-annualSalary : double						-hourlyPay : double								
+			_______________________
+
+			+FullTimeEmployee(String, String, double)  	+PartTimeEmployee(String, String, double)
+			+setAnnualSalary(double)					+setHourlyPay(double)
+			+getAnnualSalary() : double					+getHourlyPay() : double
+			+calculateMonthlyPay() : double				+calculateWeeklyPay(int) : double	
+
+
 We will never need to use Employee to create an Employee object, as PartTimeEmployee and FullTimeEmployee
 does that for us.
 That means we can declare Employee as an abstract class by using the syntax below:
@@ -361,13 +391,62 @@ using one of the subclass, it is still an object of the superclass.
 This is why we can call a FullTimeEmployee or PartTimeEmployee object by using the Employee class name.
 This is because both of the subclasses are still Employee objects.
 
+We are unable to call subclass methods using the superclass name however, because of the hierarchical
+nature of inheritance.
+
 -------------------------------------------------------------
 
 9.7 Abstract Methods
 
+An abstract method is a method that belongs to an abstract class. 
+It has a method definition but no implementation, ie a header but no body:
+
+	public abstract String getStatus();
+	
+This status is used in the abstract class Employee to retrieve the 'status' of an object, in this case,
+whether an Employee is Full Time or Part Time.
+
+An abstract method needs to be overridden by a method within the subclasses, so the method below
+will feature in both FullTimeEmployee and PartTimeEmployee:
+
+	@Override
+	public String getStatus()
+	{
+		return "Part-Time";
+	}
+
+This then overrides the abstract method in the superclass.
+It is a useful way of finding out what object has been created from which class.
+
+Abstract methods are required when an object has been created by the subclass of an abstract class.
+So despite not being able to create an Employee class, we can still create a reference to an Employee
+object by using the below syntax:
+
+	Employee emp;
+	
+Here we have created a reference to an employee object, as seen in EmployeeTester3.
+We do not know, at this point, which Employee subclass will be used to created an Employee object
+because this is determined at runtime.
+
+The abstract method getStatus enables us to call the method within the Employee class on the created
+object to determine whether the object is a FullTimeEmployee or PartTimeEmployee.
+
 -------------------------------------------------------------
 
 9.8 The final Modifier
+
+We have used the final modifier in created constant variables that cannot be modified in previous
+programmes.
+
+However, the final modifier can also apply to classes and methods.
+
+When applied to a class, this means that no subclasses can be created, and this is the final class:
+
+	public final class SomeClass
+
+When applied to a method, the method cannot be overridden.
+
+	public final void someMethod()
 
 -------------------------------------------------------------
 

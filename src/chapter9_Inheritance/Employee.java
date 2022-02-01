@@ -1,6 +1,6 @@
 package chapter9_Inheritance;
 
-public class Employee {
+public abstract class Employee {
 
 	private String number;
 	private String name;
@@ -25,4 +25,6 @@ public class Employee {
 	{
 		return name;
 	}
+	
+	public abstract String getStatus();
 }
