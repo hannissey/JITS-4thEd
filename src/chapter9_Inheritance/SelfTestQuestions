@@ -139,64 +139,192 @@ greater than the safe maximum value and no less than zero) are set.
 (a) In the example above, distinguish between method overriding and method
 overloading.
 
-
+	Method overriding is when the subclass overrides a method in the super class. They are distinguished
+	by which object they are called on, for example if we created a SafeSensor object Incubator
+	and used the method setPressure(), despite the fact Incubator is both a Sensor AND a SafeSensor, and
+	there is a method with the same name in both classes, AND the methods have the same implementation,
+	the compiler knows which method to use by the object it is called upon, eg:
+	
+		Incubator.setPressure(double valueIn);
+	
+	would call the SafeSensor setPressure.
+	
+	Method overloading is when two methods within the same class have the same name, but are
+	differentiated by their parameters.
+	So we see in both superclass Sensor and subclass SafeSensor we have two methods of the same name:
+	Sensor() and SafeSensor(). These are the constructors of each class, and are overloaded, because
+	both constructors of the two classes each take different parameters. Hence the compiler knows
+	which one to use.
 
 (b) Below is one attempt at the Java code for the first SafeSensor constructor.
 Identify why it will not compile.
 
+	// THIS WILL NOT COMPILE!
+	public SafeSensor(double maxIn)
+	{
+		max = maxIn;
+		pressure = 10;
+	}
+	
+	The above code will not compile because the super constructor is not used.
+		super();
+	The superclass constructor parameters need to be called within the subclass constructor otherwise
+	the variable pressure is hidden within the Sensor class. It needs to be passed to the superclass
+	via the super constructor to be able to compile.
+
 (c) Here is another attempt at the Java code for the first SafeSensor constructor.
 Identify why it will not compile.
 
+	// THIS WILL NOT COMPILE!!
+	public SafeSensor(double maxIn)
+	{
+		max = maxIn;
+		super();
+	}
+	
+	This will not compile because the super constructor needs to be used first.
+	"This is to prevent the subclass part of the object being initialized prior
+	to the superclass part of the object being initialized. "
+	- https://docs.oracle.com/javase/tutorial/java/IandI/super.html
+
 (d) Write the correct code for the first SafeSensor constructor.
 
+	public SafeSensor(double maxIn)
+	{
+		super();
+		max = maxIn;
+	}
 
 4. By referring to the BankAccount class of Sect. 9.5, distinguish between
 private, public and protected access.
+
+	Private, public and protected are all modifier keywords. They are used to control access
+	within our applications.
+	
+	Private means the attribute or method can only be used within the class itself. 
+	The attribute cannot be accessed by another class, nor can a method be used by another class.
+	In UML notation, it is depicted with a -
+	BankAccount example: private String accountName;
+	
+	Protected means the attribute or method can be accessed by the methods of any subclasses of that class.
+	It also means anything protected can be accessed by classes within the same package.
+	Think carefully about using protected because it defeats the purpose of encapsulation.
+	In UNL notation, it is depicted with a #
+	BankAccount example: protected double balance;
+	
+	Public means it is accessible to all classes.
+	In UML notation, it is depicted with a +
+	BankAccount example: public BankAccount(String accountNumberIn, String accountNameIn)
+	
+
 5. How are all classes in Java related to the Object class?
+
+	The Object class in Java is the super superclass. All classes are inherited from the Object class.
+	Remember that when we create subclasses, these have a 'a-kind-of-a' relationship with the superclass.
+	Each object we create in Java is a-kind-of Object.
+
 6. Explain, with an example, the term type cast.
-7. (a) Consider the following definition of a class called Robot:
-// THIS WILL NOT COMPILE!!
-public SafeSensor(double maxIn)
-{ 
-max = maxIn;
-pressure = 10;
-} 
-// THIS WILL NOT COMPILE!!
-public SafeSensor(double maxIn)
-{ 
-max = maxIn;
-super();
-} 
-public abstract class Robot
-{ 
-private String id;
-private int securityLevel;
-private int warningLevel = 0;
-public Robot(String IdIn, int levelIn)
-{ 
-id = IdIn;
-securityLevel = levelIn;
-} 
-public String getId()
-{ 
-return id;
-} 
-public int getSecurityLevel()
-{ 
-return securityLevel;
-} 
-public abstract void calculateWarningLevel();
-} 
-262 9 Inheritance
-(i) The following line of code is used in a program that has access to the
-Robot class:
+
+	Type cast is a way of converting a data type into another.
+	The syntax is below:
+		
+		int variable;
+		variable = (int) methodName();
+	
+	The methodName returns a double, but type casting changes the double data type into an int so it
+	can be stored in the integer variable.
+
+7. 
+(a) Consider the following definition of a class called Robot:
+
+	public abstract class Robot
+	{
+		private String id;
+		private int securityLevel;
+		private int warningLevel = 0;
+		
+		public Robot(String IdIn, int levelIn)
+		{
+			id = idIn;
+			securityLevel = levelIn;
+		}
+		
+		public String getId()
+		{
+			return id;
+		}
+		
+		public int getSecurityLevel()
+		{
+			return securityLevel;
+		}
+		
+		public abstract void calculateWarningLevel();
+	}
+		
+
+(i) The following line of code is used in a program that has access to the Robot class:
+
+	Robot aRobot = new Robot("R2D2", 1000);
+	
 Explain why this line of code would cause a compiler error.
+
+	This would cause a compiler error because Robot is an abstract class, and we are unable to
+	create Objects from abstract classes.
+
 (ii) Consider the following class:
+
+	public class CleaningRobot extends Robot
+	{
+		public String typeOfCleaningFluid;
+		
+		public CleaningRobot(String IdIn, int levelIn, String fluidIn)
+		{
+			super(IdIn, levelIn);
+			typeOfCleaningFluid = fluidIn;
+		}
+		
+		public String get TypeOfCleaningFluid()
+		{
+			return typeOfCleaningFluid;
+		}
+	}
+
 Explain why any attempt to compile this class would result in a compiler error.
+
+	The super class includes an abstract method, calculateWarningLevel().
+	This must be included as an @Override method in the subclass, otherwise the code will not compile.
+
 8. What is the effect of the final modifier, when applied to both classes and
 methods?
+
+	The final modifier, when used with a variable, does not allow the variable to be changed.
+	When applied to classes, a final class cannot be inherited (subclasses cannot be created from a
+	final class).
+	When applied to methods, the method cannot be overridden.
+	
+	So:
+	A final variable cannot be changed.
+	A final class cannot be inherited.
+	A final method cannot be overridden.
+
 9. Look back at the EmployeeTester class from Sect. 9.6. What do you think
 would happen if you replaced this line of testMethod:
+
+	System.out.println(employeeIn.getName());
+
 with the following line?
-Give a reason for your answer
+
+	System.out.println(employeeIn.getAnnualSalary());
+	
+	There would be a compilation error.
+
+Give a reason for your answer.
+
+	The original code, employeeIn.getName(), uses a method from the superclass, Employee.
+	The new line uses a method from the FullTimeEmployee class.
+	The code will not compile because calling a subclass method on a superclass Object causes an error.
+	This is because the superclass cannot recognise methods within subclasses.
+
+
 	
