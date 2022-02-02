@@ -2,7 +2,7 @@ package chapter9_Inheritance;
 
 import java.util.Scanner;
 
-public class MyExtendedOblongTester {
+public class Q1_ExtendedOblongTester {
 
 	public static void main(String[] args)
 	{
