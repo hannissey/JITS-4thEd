@@ -23,4 +23,6 @@ public class SecondHandVehicle extends Vehicle {
 		}
 		return false;
 	}
+	
+
 }

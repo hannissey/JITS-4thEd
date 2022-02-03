@@ -37,11 +37,12 @@ public class Q4_SecondHandCarSales {
 			}		
 		} while (choice != '4');
 		// quit
+		
 		System.out.println("Thank you, goodbye.");
 	}
 	
 	// add vehicle
-	public static void option1(ArrayList listIn)
+	public static void option1(ArrayList<SecondHandVehicle> listIn)
 	{
 		String regIn, makeIn;
 		int yearIn, ownersIn;
@@ -65,15 +66,27 @@ public class Q4_SecondHandCarSales {
 	}
 	
 	// display list of vehicle details
-	public static void option2(ArrayList listIn)
+	public static void option2(ArrayList<SecondHandVehicle> listIn)
 	{
+		for(SecondHandVehicle item : listIn)
+		{
+			System.out.println(item);
+		}
 		
 	}
 	
 	// delete a vehicle
-	public static void option3(ArrayList listIn)
+	public static void option3(ArrayList<SecondHandVehicle> listIn)
 	{
-		
+		int deletion;
+		System.out.println("Which car would you like to remove?");
+		for(int i = 0; i <= listIn.size() - 1; i++)
+		{
+			System.out.println((i+1) + " " + listIn.get(i).getRegNo());
+		}
+		deletion = EasyScanner.nextInt();	
+		listIn.remove(deletion);
+
 	}
 	
 

@@ -42,6 +42,17 @@ public class Vehicle {
 	
 	public int calculateAge(int yearIn)
 	{
-		return yearIn - yearOfManufacture;
+		return yearIn = yearOfManufacture;
+	}	
+	
+	@Override
+	public String toString()
+	{	
+		return "Registration: " + regNo  + "\n" + 
+		"Make: " + make  + "\n" + 
+		"Year of manufacture: " + yearOfManufacture  + "\n" + 
+		"Value: " + value  + "\n";
 	}
+	
+	
 }
